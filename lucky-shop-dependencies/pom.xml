@@ -14,11 +14,12 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <spring-clould-oauth2.version>2.2.1.RELEASE</spring-clould-oauth2.version>
-        <spring-boot-mybatis.version>2.1.2</spring-boot-mybatis.version>
+        <Mybatis-Plus.version>3.1.0</Mybatis-Plus.version>
         <spring-boot-redis.version>2.2.5.RELEASE</spring-boot-redis.version>
         <druid.version>1.1.14</druid.version>
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <fastjson.version>1.2.62</fastjson.version>
+        <lombok.version>1.18.10</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -48,11 +49,11 @@
                 <version>${spring-clould-oauth2.version}</version>
             </dependency>
 
-            <!-- Mybatis的依赖配置 -->
+            <!-- Mybatis-Plus的依赖配置 -->
             <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${spring-boot-mybatis.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${Mybatis-Plus.version}</version>
             </dependency>
 
             <!-- Redis -->
@@ -80,7 +81,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <optional>true</optional>
+                <version>${lombok.version}</version>
             </dependency>
 
             <!-- Alibaba fastjson -->

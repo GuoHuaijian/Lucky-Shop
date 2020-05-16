@@ -1,0 +1,88 @@
+package com.lucky.shop.auth.domain;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * 用户实体
+ *
+ * @Author Guo Huaijian
+ * @Date 2020/5/16 21:42
+ */
+@Data
+@TableName(value = "lucky-shop.t_sys_user")
+public class TSysUser implements Serializable {
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * 创建人
+     */
+    @TableField(value = "create_by")
+    private Long createBy;
+
+    /**
+     * 创建时间/注册时间
+     */
+    @TableField(value = "create_time")
+    private Date createTime;
+
+    /**
+     * 最后更新人
+     */
+    @TableField(value = "modify_by")
+    private Long modifyBy;
+
+    /**
+     * 最后更新时间
+     */
+    @TableField(value = "modify_time")
+    private Date modifyTime;
+
+    @TableField(value = "account")
+    private String account;
+
+    @TableField(value = "avatar")
+    private String avatar;
+
+    @TableField(value = "birthday")
+    private Date birthday;
+
+    @TableField(value = "deptid")
+    private Long deptid;
+
+    @TableField(value = "email")
+    private String email;
+
+    @TableField(value = "name")
+    private String name;
+
+    @TableField(value = "password")
+    private String password;
+
+    @TableField(value = "phone")
+    private String phone;
+
+    @TableField(value = "roleid")
+    private String roleid;
+
+    @TableField(value = "salt")
+    private String salt;
+
+    @TableField(value = "sex")
+    private Integer sex;
+
+    @TableField(value = "status")
+    private Integer status;
+
+    @TableField(value = "version")
+    private Integer version;
+
+    private static final long serialVersionUID = 1L;
+}
