@@ -1,14 +1,18 @@
 package com.lucky.shop.auth.controller;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.google.common.collect.Maps;
+import com.lucky.shop.auth.domain.AuthorizationUser;
 import com.lucky.shop.auth.domain.TSysUser;
 import com.lucky.shop.auth.service.TSysUserService;
 import com.lucky.shop.common.dto.ResponseResult;
+import com.lucky.shop.common.tool.Maps;
+import org.nutz.mapl.Mapl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -98,13 +102,31 @@ public class LoginController {
      * @return
      */
     @GetMapping("info")
-    public ResponseResult info(){
+    @PreAuthorize("hasAuthority('Admin')")
+    public ResponseResult info(HttpServletRequest request){
         // 获取认证信息
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
+        String username = authentication.getName();
         // 获取个人信息
-
-        return ResponseResult.success();
+        QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
+        wrapper.eq(TSysUser.COL_ACCOUNT,username);
+        TSysUser user = userService.getOne(wrapper);
+        if (StrUtil.isEmpty(user.getRoleid())){
+            return ResponseResult.error("该用户未配置权限");
+        }
+        try {
+            AuthorizationUser authorizationInfo = userService.getAuthorizationInfo(username);
+            Map map = Maps.newHashMap("name", user.getName(), "role", "admin", "roles", authorizationInfo.getRoleCodes());
+            map.put("permissions", authorizationInfo.getUrls());
+            Map profile = (Map) Mapl.toMaplist(user);
+            profile.put("dept", authorizationInfo.getDeptName());
+            profile.put("roles", authorizationInfo.getRoleNames());
+            map.put("profile", profile);
+            return ResponseResult.success(map);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseResult.error("获取用户信息失败");
     }
 
     /**
@@ -112,6 +134,7 @@ public class LoginController {
      * @return
      */
     @PostMapping("logout")
+    @PreAuthorize("hasAuthority('Admin')")
     public ResponseResult logout(HttpServletRequest request){
         // 获取 token
         String token = request.getHeader("Authorization");

@@ -166,4 +166,12 @@ public class ResponseResult<T> extends HashMap<String, Object> implements Serial
     public static ResponseResult error(int code, String msg) {
         return new ResponseResult(code, msg, null);
     }
+
+    /**
+     *token过期
+     * @return
+     */
+    public static ResponseResult tokenExpire(){
+        return new ResponseResult(CodeStatus.TOKEN_EXPIRE.getCode(),CodeStatus.TOKEN_EXPIRE.getMsg(),null);
+    }
 }

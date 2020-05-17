@@ -16,6 +16,7 @@
 
     <properties>
         <commons-pool2.version>2.8.0</commons-pool2.version>
+        <nutz.version>1.r.67</nutz.version>
     </properties>
 
     <dependencies>
@@ -89,6 +90,14 @@
             <artifactId>commons-pool2</artifactId>
             <version>${commons-pool2.version}</version>
         </dependency>
+
+        <!-- Nutz -->
+        <dependency>
+            <groupId>org.nutz</groupId>
+            <artifactId>nutz-integration-spring</artifactId>
+            <version>${nutz.version}</version>
+        </dependency>
+
 
 
     </dependencies>
