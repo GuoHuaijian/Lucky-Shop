@@ -3,7 +3,7 @@
 <mapper namespace="com.lucky.shop.auth.mapper.TSysUserMapper">
   <resultMap id="BaseResultMap" type="com.lucky.shop.auth.domain.TSysUser">
     <!--@mbg.generated-->
-    <!--@Table lucky-shop.t_sys_user-->
+    <!--@Table t_sys_user-->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="create_by" jdbcType="BIGINT" property="createBy" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -25,7 +25,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, create_by, create_time, modify_by, modify_time, account, avatar, birthday, deptid, 
+    id, create_by, create_time, modify_by, modify_time, account, avatar, birthday, deptid,
     email, `name`, `password`, phone, roleid, salt, sex, `status`, version
   </sql>
 </mapper>

@@ -1,8 +1,13 @@
-spring:
+#服务端口
+server:
+  port: 9001
 
+spring:
+  #服务名
   application:
     name: lucky-shop-auth
 
+  #数据库配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -10,9 +15,10 @@ spring:
     username: root
     password: 123456
 
+  #Redis配置
   redis:
     host: 127.0.0.1
-    port: 6380
+    port: 6379
     lettuce:
       pool:
         min-idle: 0
@@ -20,13 +26,20 @@ spring:
         max-wait: -1ms
         max-active: 8
 
+  #Cloud相关配置
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-
-server:
-  port: 8081
+# Oauth2相关配置
+auth:
+  oauth2:
+    #密码模式
+    grant_type: password
+    client_id: admin
+    client_secret: admin
+    #获取token地址
+    access-token-url: http://localhost:9001/oauth/token
 
 management:
   endpoints:
@@ -56,3 +69,9 @@ mybatis-plus:
     call-setters-on-nulls: true
     # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志配置
+logging:
+  level:
+    com.lucky.shop.auth: info
+    org.springframework: info

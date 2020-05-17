@@ -28,5 +28,7 @@ public enum CodeStatus {
     }
 
     CodeStatus(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
     }
 }

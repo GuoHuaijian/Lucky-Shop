@@ -16,7 +16,7 @@ import java.util.Date;
  * @Date 2020/5/16 21:42
  */
 @Data
-@TableName(value = "lucky-shop.t_sys_user")
+@TableName(value = "t_sys_user")
 public class TSysUser implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -85,4 +85,40 @@ public class TSysUser implements Serializable {
     private Integer version;
 
     private static final long serialVersionUID = 1L;
+
+    public static final String COL_ID = "id";
+
+    public static final String COL_CREATE_BY = "create_by";
+
+    public static final String COL_CREATE_TIME = "create_time";
+
+    public static final String COL_MODIFY_BY = "modify_by";
+
+    public static final String COL_MODIFY_TIME = "modify_time";
+
+    public static final String COL_ACCOUNT = "account";
+
+    public static final String COL_AVATAR = "avatar";
+
+    public static final String COL_BIRTHDAY = "birthday";
+
+    public static final String COL_DEPTID = "deptid";
+
+    public static final String COL_EMAIL = "email";
+
+    public static final String COL_NAME = "name";
+
+    public static final String COL_PASSWORD = "password";
+
+    public static final String COL_PHONE = "phone";
+
+    public static final String COL_ROLEID = "roleid";
+
+    public static final String COL_SALT = "salt";
+
+    public static final String COL_SEX = "sex";
+
+    public static final String COL_STATUS = "status";
+
+    public static final String COL_VERSION = "version";
 }

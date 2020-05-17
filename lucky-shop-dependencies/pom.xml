@@ -20,6 +20,7 @@
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <fastjson.version>1.2.62</fastjson.version>
         <lombok.version>1.18.10</lombok.version>
+        <hutool.version>5.3.1</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -89,6 +90,13 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- Hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
 
         </dependencies>
