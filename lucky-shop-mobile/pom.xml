@@ -11,7 +11,7 @@
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-mobile</artifactId>
     <version>1.0.0</version>
-    <name>lucky-shop-ucenter</name>
+    <name>lucky-shop-mobile</name>
     <description>用户门户系统</description>
 
     <properties>
