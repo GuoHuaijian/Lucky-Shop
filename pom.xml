@@ -20,7 +20,7 @@
         <module>lucky-shop-admin</module>
         <module>lucky-shop-auth</module>
         <module>lucky-shop-common</module>
-        <module>lucky-shop-ucenter</module>
+        <module>lucky-shop-mobile</module>
         <module>lucky-shop-config</module>
         <module>lucky-shop-gateway</module>
         <module>lucky-shop-api</module>
