@@ -14,6 +14,10 @@
     <name>lucky-shop-admin</name>
     <description>后台管理系统</description>
 
+    <modules>
+        <module>lucky-shop-admin-auth</module>
+    </modules>
+
     <properties>
 
     </properties>

@@ -1,10 +1,10 @@
-package com.lucky.shop.admin;
+package com.lucky.shop.admin.auth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LuckyShopAdminApplicationTests {
+class LuckyShopAdminAuthApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,16 +1,13 @@
-package com.lucky.shop.admin;
+package com.lucky.shop.admin.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @author Admin
- */
 @SpringBootApplication
-public class LuckyShopAdminApplication {
+public class LuckyShopAdminAuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LuckyShopAdminApplication.class, args);
+        SpringApplication.run(LuckyShopAdminAuthApplication.class, args);
     }
 
 }
