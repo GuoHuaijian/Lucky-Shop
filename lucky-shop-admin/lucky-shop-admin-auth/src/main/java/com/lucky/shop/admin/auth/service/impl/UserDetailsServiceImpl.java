@@ -2,8 +2,8 @@ package com.lucky.shop.admin.auth.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Lists;
-import com.lucky.shop.auth.domain.TSysUser;
-import com.lucky.shop.auth.service.TSysUserService;
+import com.lucky.shop.admin.auth.domain.TSysUser;
+import com.lucky.shop.admin.auth.service.TSysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

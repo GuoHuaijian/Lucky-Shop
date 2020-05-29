@@ -1,7 +1,7 @@
 package com.lucky.shop.admin.auth.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lucky.shop.auth.domain.TSysUser;
+import com.lucky.shop.admin.auth.domain.TSysUser;
 
 /**
  * 用户Mapper

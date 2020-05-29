@@ -1,7 +1,7 @@
 package com.lucky.shop.admin.auth.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lucky.shop.auth.domain.TSysMenu;
+import com.lucky.shop.admin.auth.domain.TSysMenu;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

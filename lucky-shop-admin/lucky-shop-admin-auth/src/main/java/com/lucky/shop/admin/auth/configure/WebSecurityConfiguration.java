@@ -1,6 +1,6 @@
 package com.lucky.shop.admin.auth.configure;
 
-import com.lucky.shop.auth.service.impl.UserDetailsServiceImpl;
+import com.lucky.shop.admin.auth.service.impl.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
