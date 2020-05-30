@@ -7,8 +7,29 @@ package com.lucky.shop.common.enums;
  */
 public enum CodeStatus {
 
-    SUCCESS(20000,"操作成功"),FAILURE(9999,"操作失败"),TOKEN_EXPIRE(50014,"token 过期");
+    /**
+     * 成功
+     */
+    SUCCESS(20000,"操作成功"),
+
+    /**
+     * 失败
+     */
+    FAILURE(9999,"操作失败"),
+
+    /**
+     * 授权过期
+     */
+    TOKEN_EXPIRE(50014,"token 过期");
+
+    /**
+     * 返回状态码
+     */
     private Integer code;
+
+    /**
+     * 返回信息
+     */
     private String msg;
 
     public Integer getCode() {

@@ -39,7 +39,7 @@ import java.util.Map;
 public class LoginController {
 
     @Value("${auth.oauth2.access-token-url}")
-    public String access_token_url;
+    public String accessTokenUrl;
 
     @Value("${auth.oauth2.grant_type}")
     public String oauth2GrantType;
@@ -86,7 +86,7 @@ public class LoginController {
 
         try {
             // 解析响应结果封装并返回
-            String jsonString = HttpUtil.post(access_token_url, params);
+            String jsonString = HttpUtil.post(accessTokenUrl, params);
             Map<String, Object> jsonMap = (Map) JSONObject.parse(jsonString);
             String token = String.valueOf(jsonMap.get("access_token"));
             result.put("token", token);

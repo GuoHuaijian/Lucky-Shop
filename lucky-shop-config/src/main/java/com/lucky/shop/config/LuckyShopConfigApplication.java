@@ -3,6 +3,9 @@ package com.lucky.shop.config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Admin
+ */
 @SpringBootApplication
 public class LuckyShopConfigApplication {
 

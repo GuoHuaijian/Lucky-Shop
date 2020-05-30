@@ -1,13 +1,14 @@
 package com.lucky.shop.admin.auth.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lucky.shop.admin.auth.domain.TSysRole;
+import com.lucky.shop.admin.auth.domain.SysDept;
 
 /**
- * 权限Service
+ * 部门Service
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */
-public interface TSysRoleService extends IService<TSysRole> {
+public interface SysDeptService extends IService<SysDept> {
+
 
 }

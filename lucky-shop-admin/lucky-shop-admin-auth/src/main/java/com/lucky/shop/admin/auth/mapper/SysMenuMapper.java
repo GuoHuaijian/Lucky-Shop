@@ -1,7 +1,7 @@
 package com.lucky.shop.admin.auth.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lucky.shop.admin.auth.domain.TSysMenu;
+import com.lucky.shop.admin.auth.domain.SysMenu;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */
-public interface TSysMenuMapper extends BaseMapper<TSysMenu> {
+public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
      *查询菜单地址

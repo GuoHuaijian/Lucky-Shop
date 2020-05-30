@@ -2,8 +2,8 @@ package com.lucky.shop.admin.auth.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Lists;
-import com.lucky.shop.admin.auth.domain.TSysUser;
-import com.lucky.shop.admin.auth.service.TSysUserService;
+import com.lucky.shop.admin.auth.domain.SysUser;
+import com.lucky.shop.admin.auth.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,13 +26,13 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private TSysUserService userService;
+    private SysUserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(TSysUser.COL_ACCOUNT, s);
-        TSysUser user = userService.getOne(wrapper);
+        QueryWrapper<SysUser> wrapper = new QueryWrapper<>();
+        wrapper.eq(SysUser.COL_ACCOUNT, s);
+        SysUser user = userService.getOne(wrapper);
         if (!StringUtils.isEmpty(user)) {
             // 设置后台用户拥有Admin权限,可以从数据库获取权限
             List<GrantedAuthority> grantedAuthorities = Lists.newArrayList();

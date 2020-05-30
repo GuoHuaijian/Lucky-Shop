@@ -1,7 +1,7 @@
 package com.lucky.shop.admin.auth.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lucky.shop.admin.auth.domain.TSysMenu;
+import com.lucky.shop.admin.auth.domain.SysMenu;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */
-public interface TSysMenuService extends IService<TSysMenu> {
+public interface SysMenuService extends IService<SysMenu> {
 
 
     /**

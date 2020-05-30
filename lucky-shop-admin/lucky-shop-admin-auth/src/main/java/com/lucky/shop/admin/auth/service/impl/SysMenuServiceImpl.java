@@ -2,9 +2,9 @@ package com.lucky.shop.admin.auth.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lucky.shop.admin.auth.domain.TSysMenu;
-import com.lucky.shop.admin.auth.mapper.TSysMenuMapper;
-import com.lucky.shop.admin.auth.service.TSysMenuService;
+import com.lucky.shop.admin.auth.domain.SysMenu;
+import com.lucky.shop.admin.auth.mapper.SysMenuMapper;
+import com.lucky.shop.admin.auth.service.SysMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +16,10 @@ import java.util.List;
  * @Date 2020/5/17 18:49
  */
 @Service
-public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu> implements TSysMenuService {
+public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements SysMenuService {
 
     @Autowired
-    private TSysMenuService menuService;
+    private SysMenuService menuService;
 
     /**
      * 查询菜单地址

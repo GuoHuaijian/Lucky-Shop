@@ -2,7 +2,7 @@ package com.lucky.shop.admin.auth.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lucky.shop.admin.auth.domain.AuthorizationUser;
-import com.lucky.shop.admin.auth.domain.TSysUser;
+import com.lucky.shop.admin.auth.domain.SysUser;
 
 /**
  * 用户Service
@@ -10,7 +10,7 @@ import com.lucky.shop.admin.auth.domain.TSysUser;
  * @Author Guo Huaijian
  * @Date 2020/5/16 21:42
  */
-public interface TSysUserService extends IService<TSysUser> {
+public interface SysUserService extends IService<SysUser> {
 
     /**
      * 获取用户菜单，角色等相关信息

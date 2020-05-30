@@ -5,8 +5,8 @@ import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lucky.shop.admin.auth.domain.AuthorizationUser;
-import com.lucky.shop.admin.auth.domain.TSysUser;
-import com.lucky.shop.admin.auth.service.TSysUserService;
+import com.lucky.shop.admin.auth.domain.SysUser;
+import com.lucky.shop.admin.auth.service.SysUserService;
 import com.lucky.shop.common.dto.ResponseResult;
 import com.lucky.shop.common.tool.Maps;
 import org.nutz.mapl.Mapl;
@@ -39,7 +39,7 @@ import java.util.Map;
 public class LoginController {
 
     @Value("${auth.oauth2.access-token-url}")
-    public String access_token_url;
+    public String accessTokenUrl;
 
     @Value("${auth.oauth2.grant_type}")
     public String oauth2GrantType;
@@ -51,7 +51,7 @@ public class LoginController {
     public String oauth2ClientSecret;
 
     @Autowired
-    private TSysUserService userService;
+    private SysUserService userService;
 
     @Resource
     public BCryptPasswordEncoder passwordEncoder;
@@ -65,9 +65,9 @@ public class LoginController {
      */
     @PostMapping("login/{username}/{password}")
     public ResponseResult login(@PathVariable String username, @PathVariable String password){
-        QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(TSysUser.COL_ACCOUNT,username);
-        TSysUser user = userService.getOne(wrapper);
+        QueryWrapper<SysUser> wrapper = new QueryWrapper<>();
+        wrapper.eq(SysUser.COL_ACCOUNT,username);
+        SysUser user = userService.getOne(wrapper);
         if (StringUtils.isEmpty(user)){
             return ResponseResult.error("用户不存在");
         }
@@ -86,7 +86,7 @@ public class LoginController {
 
         try {
             // 解析响应结果封装并返回
-            String jsonString = HttpUtil.post(access_token_url, params);
+            String jsonString = HttpUtil.post(accessTokenUrl, params);
             Map<String, Object> jsonMap = (Map) JSONObject.parse(jsonString);
             String token = String.valueOf(jsonMap.get("access_token"));
             result.put("token", token);
@@ -108,9 +108,9 @@ public class LoginController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         // 获取个人信息
-        QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(TSysUser.COL_ACCOUNT,username);
-        TSysUser user = userService.getOne(wrapper);
+        QueryWrapper<SysUser> wrapper = new QueryWrapper<>();
+        wrapper.eq(SysUser.COL_ACCOUNT,username);
+        SysUser user = userService.getOne(wrapper);
         if (StrUtil.isEmpty(user.getRoleid())){
             return ResponseResult.error("该用户未配置权限");
         }

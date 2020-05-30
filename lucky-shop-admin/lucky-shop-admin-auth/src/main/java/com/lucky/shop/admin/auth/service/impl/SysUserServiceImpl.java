@@ -4,12 +4,12 @@ import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lucky.shop.admin.auth.domain.AuthorizationUser;
-import com.lucky.shop.admin.auth.domain.TSysRole;
-import com.lucky.shop.admin.auth.domain.TSysUser;
-import com.lucky.shop.admin.auth.mapper.TSysUserMapper;
-import com.lucky.shop.admin.auth.service.TSysDeptService;
-import com.lucky.shop.admin.auth.service.TSysRoleService;
-import com.lucky.shop.admin.auth.service.TSysUserService;
+import com.lucky.shop.admin.auth.domain.SysRole;
+import com.lucky.shop.admin.auth.domain.SysUser;
+import com.lucky.shop.admin.auth.mapper.SysUserMapper;
+import com.lucky.shop.admin.auth.service.SysDeptService;
+import com.lucky.shop.admin.auth.service.SysRoleService;
+import com.lucky.shop.admin.auth.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,16 +25,16 @@ import java.util.Set;
  * @Date 2020/5/16 21:42
  */
 @Service
-public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> implements TSysUserService {
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
     @Autowired
-    private TSysDeptService deptService;
+    private SysDeptService deptService;
 
     @Autowired
-    private TSysRoleService roleService;
+    private SysRoleService roleService;
 
     @Autowired
-    private TSysMenuServiceImpl menuService;
+    private SysMenuServiceImpl menuService;
 
     /**
      * 获取用户菜单，角色等相关信息
@@ -44,9 +44,9 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> i
     @Override
     public AuthorizationUser getAuthorizationInfo(String account) {
         AuthorizationUser userBean = new AuthorizationUser();
-        QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(TSysUser.COL_ACCOUNT,account);
-        TSysUser user = this.getOne(wrapper);
+        QueryWrapper<SysUser> wrapper = new QueryWrapper<>();
+        wrapper.eq(SysUser.COL_ACCOUNT,account);
+        SysUser user = this.getOne(wrapper);
         userBean.setId(user.getId());
         userBean.setAccount(user.getAccount());
         userBean.setDeptId(user.getDeptid());
@@ -63,7 +63,7 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> i
         Set<String> resUrls = new HashSet<>();
         for (Long roleId : roleArray) {
             roleList.add(roleId);
-            TSysRole role = roleService.getById(roleId);
+            SysRole role = roleService.getById(roleId);
             roleNameList.add(role.getName());
             roleCodeList.add(role.getTips());
             permissions.addAll(menuService.getResCodesByRoleId(roleId));

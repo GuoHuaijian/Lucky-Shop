@@ -16,7 +16,7 @@ import java.util.Date;
  */
 @Data
 @TableName(value = "t_sys_menu")
-public class TSysMenu implements Serializable {
+public class SysMenu implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
