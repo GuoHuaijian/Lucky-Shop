@@ -21,6 +21,8 @@
         <module>lucky-shop-admin-system</module>
         <module>lucky-shop-admin-message</module>
         <module>lucky-shop-admin-ops</module>
+        <module>lucky-shop-admin-seo</module>
+        <module>lucky-shop-admin-dashboard</module>
     </modules>
 
     <properties>
