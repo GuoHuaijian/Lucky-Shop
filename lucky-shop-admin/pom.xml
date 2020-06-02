@@ -16,6 +16,11 @@
 
     <modules>
         <module>lucky-shop-admin-auth</module>
+        <module>lucky-shop-admin-mall</module>
+        <module>lucky-shop-admin-cms</module>
+        <module>lucky-shop-admin-system</module>
+        <module>lucky-shop-admin-message</module>
+        <module>lucky-shop-admin-ops</module>
     </modules>
 
     <properties>
