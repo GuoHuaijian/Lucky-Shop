@@ -14,6 +14,7 @@ public interface SysUserService extends IService<SysUser> {
 
     /**
      * 获取用户菜单，角色等相关信息
+     *
      * @param account
      * @return
      */

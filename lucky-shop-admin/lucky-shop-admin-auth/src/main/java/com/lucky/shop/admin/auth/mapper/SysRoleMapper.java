@@ -5,6 +5,7 @@ import com.lucky.shop.admin.auth.domain.SysRole;
 
 /**
  * 权限mapper
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */

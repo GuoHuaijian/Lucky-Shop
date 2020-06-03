@@ -11,10 +11,11 @@ import java.util.List;
 
 /**
  * 权限ServiceImpl
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */
 @Service
-public class TSysRoleServiceImpl extends ServiceImpl<TSysRoleMapper, TSysRole> implements TSysRoleService{
+public class TSysRoleServiceImpl extends ServiceImpl<TSysRoleMapper, TSysRole> implements TSysRoleService {
 
 }

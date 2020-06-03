@@ -7,6 +7,9 @@ spring:
   application:
     name: lucky-shop-admin-auth
 
+  main:
+    allow-bean-definition-overriding: true
+
   #数据库配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -52,7 +55,7 @@ mybatis-plus:
   # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
   mapper-locations: classpath:mapperxml/*Mapper.xml
   # 搜索指定包别名
-  typeAliasesPackage: com.lucky.shop.auth.domain
+  typeAliasesPackage: com.lucky.shop.admin.auth.domain
   # 以下配置均有默认值,可以不设置
   global-config:
     db-config:

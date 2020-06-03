@@ -10,10 +10,11 @@ import com.lucky.shop.auth.domain.TSysUser;
  * @Author Guo Huaijian
  * @Date 2020/5/16 21:42
  */
-public interface TSysUserService extends IService<TSysUser>{
+public interface TSysUserService extends IService<TSysUser> {
 
     /**
      * 获取用户菜单，角色等相关信息
+     *
      * @param account
      * @return
      */

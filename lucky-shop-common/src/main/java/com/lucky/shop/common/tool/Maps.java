@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * map工具类
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 19:58
  */

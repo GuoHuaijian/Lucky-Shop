@@ -2,6 +2,7 @@ package com.lucky.shop.common.constant;
 
 /**
  * 菜单状态常量
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */

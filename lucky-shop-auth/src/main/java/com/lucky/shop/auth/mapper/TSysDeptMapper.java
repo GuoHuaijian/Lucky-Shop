@@ -5,6 +5,7 @@ import com.lucky.shop.auth.domain.TSysDept;
 
 /**
  * 部门mapper
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */

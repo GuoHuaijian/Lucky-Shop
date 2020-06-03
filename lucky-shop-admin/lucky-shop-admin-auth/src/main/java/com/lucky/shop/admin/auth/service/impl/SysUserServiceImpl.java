@@ -38,6 +38,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 获取用户菜单，角色等相关信息
+     *
      * @param account
      * @return
      */
@@ -45,7 +46,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public AuthorizationUser getAuthorizationInfo(String account) {
         AuthorizationUser userBean = new AuthorizationUser();
         QueryWrapper<SysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(SysUser.COL_ACCOUNT,account);
+        wrapper.eq(SysUser.COL_ACCOUNT, account);
         SysUser user = this.getOne(wrapper);
         userBean.setId(user.getId());
         userBean.setAccount(user.getAccount());

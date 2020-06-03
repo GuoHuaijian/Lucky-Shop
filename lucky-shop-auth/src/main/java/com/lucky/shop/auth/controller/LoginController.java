@@ -61,17 +61,18 @@ public class LoginController {
 
     /**
      * 登录
+     *
      * @return
      */
     @PostMapping("login/{username}/{password}")
-    public ResponseResult login(@PathVariable String username, @PathVariable String password){
+    public ResponseResult login(@PathVariable String username, @PathVariable String password) {
         QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(TSysUser.COL_ACCOUNT,username);
+        wrapper.eq(TSysUser.COL_ACCOUNT, username);
         TSysUser user = userService.getOne(wrapper);
-        if (StringUtils.isEmpty(user)){
+        if (StringUtils.isEmpty(user)) {
             return ResponseResult.error("用户不存在");
         }
-        if (!passwordEncoder.matches(password,user.getPassword())){
+        if (!passwordEncoder.matches(password, user.getPassword())) {
             return ResponseResult.error("密码错误");
         }
 
@@ -99,19 +100,20 @@ public class LoginController {
 
     /**
      * 获取用户信息
+     *
      * @return
      */
     @GetMapping("info")
     @PreAuthorize("hasAuthority('Admin')")
-    public ResponseResult info(HttpServletRequest request){
+    public ResponseResult info(HttpServletRequest request) {
         // 获取认证信息
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         // 获取个人信息
         QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(TSysUser.COL_ACCOUNT,username);
+        wrapper.eq(TSysUser.COL_ACCOUNT, username);
         TSysUser user = userService.getOne(wrapper);
-        if (StrUtil.isEmpty(user.getRoleid())){
+        if (StrUtil.isEmpty(user.getRoleid())) {
             return ResponseResult.error("该用户未配置权限");
         }
         try {
@@ -123,7 +125,7 @@ public class LoginController {
             profile.put("roles", authorizationInfo.getRoleNames());
             map.put("profile", profile);
             return ResponseResult.success(map);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return ResponseResult.error("获取用户信息失败");
@@ -131,11 +133,12 @@ public class LoginController {
 
     /**
      * 注销
+     *
      * @return
      */
     @PostMapping("logout")
     @PreAuthorize("hasAuthority('Admin')")
-    public ResponseResult logout(HttpServletRequest request){
+    public ResponseResult logout(HttpServletRequest request) {
         // 获取 token
         String token = request.getHeader("Authorization");
         // 删除 token 以注销

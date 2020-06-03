@@ -25,7 +25,7 @@ import java.util.Set;
  * @Date 2020/5/16 21:42
  */
 @Service
-public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> implements TSysUserService{
+public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> implements TSysUserService {
 
     @Autowired
     private TSysDeptService deptService;
@@ -38,6 +38,7 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> i
 
     /**
      * 获取用户菜单，角色等相关信息
+     *
      * @param account
      * @return
      */
@@ -45,7 +46,7 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> i
     public AuthorizationUser getAuthorizationInfo(String account) {
         AuthorizationUser userBean = new AuthorizationUser();
         QueryWrapper<TSysUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(TSysUser.COL_ACCOUNT,account);
+        wrapper.eq(TSysUser.COL_ACCOUNT, account);
         TSysUser user = this.getOne(wrapper);
         userBean.setId(user.getId());
         userBean.setAccount(user.getAccount());

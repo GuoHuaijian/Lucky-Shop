@@ -8,6 +8,7 @@ import java.util.Set;
 
 /**
  * 自定义Authentication对象
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:23
  */
@@ -16,7 +17,7 @@ public class AuthorizationUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
     /**
-     *    主键ID
+     * 主键ID
      */
     private Long id;
     /**
@@ -27,7 +28,7 @@ public class AuthorizationUser implements Serializable {
     private String name;
     private Long deptId;
     /**
-     *  角色集
+     * 角色集
      */
     private List<Long> roleList;
     /**

@@ -8,13 +8,15 @@ import java.util.List;
 
 /**
  * 菜单mapper
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */
 public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
-     *查询菜单地址
+     * 查询菜单地址
+     *
      * @param roleId
      * @return
      */
@@ -23,6 +25,7 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
      * 查询菜单编号
+     *
      * @param roleId
      * @return
      */

@@ -11,17 +11,19 @@ import java.util.List;
 
 /**
  * 菜单ServiceImpl
+ *
  * @Author Guo Huaijian
  * @Date 2020/5/17 18:49
  */
 @Service
-public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu> implements TSysMenuService{
+public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu> implements TSysMenuService {
 
     @Autowired
     private TSysMenuService menuService;
 
     /**
      * 查询菜单地址
+     *
      * @param roleId
      * @return
      */
@@ -32,6 +34,7 @@ public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu> i
 
     /**
      * 查询菜单编号
+     *
      * @param roleId
      * @return
      */

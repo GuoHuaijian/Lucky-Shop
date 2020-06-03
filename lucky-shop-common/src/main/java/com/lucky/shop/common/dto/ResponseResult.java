@@ -7,13 +7,13 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 /**
- *统一返回结果集
+ * 统一返回结果集
  *
  * @Author Guo Huaijian
  * @Date 2020/5/16 22:33
  */
 @Data
-public class ResponseResult<T> extends HashMap<String, Object> implements Serializable{
+public class ResponseResult<T> extends HashMap<String, Object> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -115,11 +115,11 @@ public class ResponseResult<T> extends HashMap<String, Object> implements Serial
     }
 
     /**
-     *返回成功消息
+     * 返回成功消息
      *
      * @param code 状态码
      * @param data 数据对象
-     * @param msg 返回内容
+     * @param msg  返回内容
      * @return
      */
     public static ResponseResult success(int code, Object data, String msg) {
@@ -168,10 +168,11 @@ public class ResponseResult<T> extends HashMap<String, Object> implements Serial
     }
 
     /**
-     *token过期
+     * token过期
+     *
      * @return
      */
-    public static ResponseResult tokenExpire(){
-        return new ResponseResult(CodeStatus.TOKEN_EXPIRE.getCode(),CodeStatus.TOKEN_EXPIRE.getMsg(),null);
+    public static ResponseResult tokenExpire() {
+        return new ResponseResult(CodeStatus.TOKEN_EXPIRE.getCode(), CodeStatus.TOKEN_EXPIRE.getMsg(), null);
     }
 }
