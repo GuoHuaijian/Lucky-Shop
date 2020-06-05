@@ -2,6 +2,7 @@ package com.lucky.shop.common.constant;
 
 /**
  * 分页常量
+ *
  * @Create by Guo Huaijian
  * @Since 2020/6/3 13:41
  */

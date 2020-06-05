@@ -14,12 +14,51 @@
     <name>lucky-shop-api</name>
     <description>项目feign接口</description>
 
+    <modules>
+        <module>lucky-shop-admin-api</module>
+        <module>lucky-shop-mobile-api</module>
+    </modules>
+
     <properties>
 
     </properties>
 
     <dependencies>
+        <!-- Spring Boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
 
+        <!-- Spring Cloud -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- Common -->
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Config -->
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -32,6 +32,10 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 
+feign:
+  sentinel:
+    enabled: true
+
 # Oauth2相关配置  配置为security 则不需要自定义验证
 Oauth2:
   oauth2:

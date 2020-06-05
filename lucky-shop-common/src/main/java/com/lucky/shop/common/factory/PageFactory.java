@@ -38,7 +38,7 @@ public class PageFactory<T> {
         // asc或desc(升序或降序)
         String order = request.getParameter(PageConstant.ORDER);
         if (StringUtil.isEmpty(sortName)) {
-            Page<T> page = new Page<>(pageNum,limit);
+            Page<T> page = new Page<>(pageNum, limit);
             return page;
         } else {
             Page<T> page = new Page<>(pageNum, limit);

@@ -15,7 +15,8 @@
     <description>项目公共模块</description>
 
     <properties>
-
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <ehcache.version>2.10.6</ehcache.version>
     </properties>
 
     <dependencies>
@@ -50,6 +51,29 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+
+        <!-- Commons-Lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <!-- Commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons-beanutils.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- net.sf.ehcache/ehcache -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

@@ -2,12 +2,14 @@ package com.lucky.shop.admin.mall;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author Admin
  */
-@SpringBootApplication
+@SpringCloudApplication
+@EnableFeignClients(basePackages = "com.lucky.shop.admin.system.api")
 @MapperScan(basePackages = "com.lucky.shop.admin.mall.mapper")
 public class LuckyShopAdminMallApplication {
 

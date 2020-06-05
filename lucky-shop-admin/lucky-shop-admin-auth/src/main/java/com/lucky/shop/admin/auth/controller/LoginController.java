@@ -94,7 +94,6 @@ public class LoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(result);
         return ResponseResult.success(result);
     }
 
