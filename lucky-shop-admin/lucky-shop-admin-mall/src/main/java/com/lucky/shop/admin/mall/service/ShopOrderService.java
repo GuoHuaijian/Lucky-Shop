@@ -20,8 +20,25 @@ public interface ShopOrderService extends IService<ShopOrder> {
 
     /**
      * 更新订单信息
+     *
      * @param order
      */
     void send(ShopOrder order);
+
+    /**
+     * 管理员添加备注信息
+     *
+     * @param order
+     * @param message
+     */
+    void addComment(ShopOrder order, String message);
+
+    /**
+     * 根据订单编号获取订单
+     *
+     * @param orderSn
+     * @return
+     */
+    ShopOrder getByOrderSn(String orderSn);
 
 }

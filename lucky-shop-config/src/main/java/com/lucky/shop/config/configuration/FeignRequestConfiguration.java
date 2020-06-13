@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Feign 全局配置
+ *
  * @Author Guo Huaijian
  * @Date 2020/6/5 19:25
  */

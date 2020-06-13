@@ -1,5 +1,6 @@
 package com.lucky.shop.auth.controller;
 
+
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
@@ -7,8 +8,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lucky.shop.auth.domain.AuthorizationUser;
 import com.lucky.shop.auth.domain.TSysUser;
 import com.lucky.shop.auth.service.TSysUserService;
-import com.lucky.shop.common.dto.ResponseResult;
-import com.lucky.shop.common.tool.Maps;
+import com.lucky.shop.common.core.dto.ResponseResult;
+import com.lucky.shop.common.core.tool.Maps;
 import org.nutz.mapl.Mapl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

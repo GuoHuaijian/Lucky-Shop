@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * 文件
+ *
  * @Author Guo Huaijian
  * @Date 2020/6/5 18:58
  */
@@ -21,14 +22,15 @@ public class FileServiceController {
 
     /**
      * 根据模板创建excel文件
+     *
      * @param template excel模板
      * @param fileName 导出的文件名称
-     * @param data  excel中填充的数据
+     * @param data     excel中填充的数据
      * @return
      */
     @PostMapping("/createExcel/{template}/{fileName}")
     public SysFileInfo createExcel(@PathVariable String template, @PathVariable String fileName,
-                                   @RequestBody Map<String, Object> data){
+                                   @RequestBody Map<String, Object> data) {
         SysFileInfo fileInfo = fileService.createExcel(template, fileName, data);
         return fileInfo;
     }

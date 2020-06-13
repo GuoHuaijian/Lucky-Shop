@@ -13,6 +13,6 @@ import org.springframework.stereotype.Service;
  * @Date 2020/6/5 16:49
  */
 @Service
-public class SysFileInfoServiceImpl extends ServiceImpl<SysFileInfoMapper, SysFileInfo> implements SysFileInfoService{
+public class SysFileInfoServiceImpl extends ServiceImpl<SysFileInfoMapper, SysFileInfo> implements SysFileInfoService {
 
 }

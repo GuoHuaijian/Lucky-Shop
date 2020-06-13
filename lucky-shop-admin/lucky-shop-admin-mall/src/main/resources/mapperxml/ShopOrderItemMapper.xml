@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.admin.mall.mapper.ShopOrderItemMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.admin.mall.domain.ShopOrderItem">
+        <!--@mbg.generated-->
+        <!--@Table t_shop_order_item-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="count" jdbcType="VARCHAR" property="count"/>
+        <result column="id_goods" jdbcType="BIGINT" property="idGoods"/>
+        <result column="id_order" jdbcType="BIGINT" property="idOrder"/>
+        <result column="id_sku" jdbcType="BIGINT" property="idSku"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="total_price" jdbcType="VARCHAR" property="totalPrice"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_time, modify_time, `count`, id_goods, id_order, id_sku, price, total_price
+    </sql>
+</mapper>

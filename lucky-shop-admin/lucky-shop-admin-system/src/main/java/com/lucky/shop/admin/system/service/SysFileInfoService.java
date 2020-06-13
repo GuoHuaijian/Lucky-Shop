@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @Author Guo Huaijian
  * @Date 2020/6/5 16:49
  */
-public interface SysFileInfoService extends IService<SysFileInfo>{
+public interface SysFileInfoService extends IService<SysFileInfo> {
 
 
 }

@@ -5,8 +5,8 @@ import com.lucky.shop.admin.system.domain.SysFileInfo;
 import com.lucky.shop.admin.system.domain.vo.Base64File;
 import com.lucky.shop.admin.system.service.SysCfgService;
 import com.lucky.shop.admin.system.service.SysFileInfoService;
-import com.lucky.shop.common.constant.CfgKey;
-import com.lucky.shop.common.utils.XlsUtils;
+import com.lucky.shop.common.core.constant.CfgKey;
+import com.lucky.shop.common.core.utils.XlsUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jxls.common.Context;
 import org.jxls.expression.JexlExpressionEvaluator;
@@ -40,51 +40,54 @@ public class FileService {
 
     /**
      * 文件上传
+     *
      * @param multipartFile
      * @return
      */
-    public SysFileInfo upload(MultipartFile multipartFile){
+    public SysFileInfo upload(MultipartFile multipartFile) {
         String uuid = UUID.randomUUID().toString();
         String originalFileName = multipartFile.getOriginalFilename();
-        String realFileName =   uuid +"."+ originalFileName.split("\\.")[originalFileName.split("\\.").length-1];
+        String realFileName = uuid + "." + originalFileName.split("\\.")[originalFileName.split("\\.").length - 1];
         try {
 
-            File file = new File(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator+realFileName);
+            File file = new File(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator + realFileName);
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
             multipartFile.transferTo(file);
-            return save(multipartFile.getOriginalFilename(),file);
+            return save(multipartFile.getOriginalFilename(), file);
         } catch (Exception e) {
 
-            log.error("保存文件异常",e);
+            log.error("保存文件异常", e);
 
         }
         return null;
     }
+
     /**
      * 文件上传
+     *
      * @param base64File
      * @return
      */
-    public SysFileInfo upload(Base64File base64File){
+    public SysFileInfo upload(Base64File base64File) {
         String uuid = UUID.randomUUID().toString();
         String originalFileName = base64File.getName();
-        String realFileName =   uuid +"."+ originalFileName.split("\\.")[originalFileName.split("\\.").length-1];
+        String realFileName = uuid + "." + originalFileName.split("\\.")[originalFileName.split("\\.").length - 1];
         try {
-            File file = new File(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator+realFileName);
-            if(base64ToFile(base64File.getBase64(),file)){
-                return save(originalFileName,file);
+            File file = new File(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator + realFileName);
+            if (base64ToFile(base64File.getBase64(), file)) {
+                return save(originalFileName, file);
             }
 
         } catch (Exception e) {
-            log.error("保存文件异常",e);
+            log.error("保存文件异常", e);
         }
         return null;
     }
 
     private boolean base64ToFile(String base64, File file) {
-        base64 = base64.substring(base64.indexOf(",")+1);
+        base64 = base64.substring(base64.indexOf(",") + 1);
         BufferedOutputStream bos = null;
         java.io.FileOutputStream fos = null;
         try {
@@ -116,20 +119,22 @@ public class FileService {
             }
         }
     }
+
     /**
      * 根据模板创建excel文件
+     *
      * @param template excel模板
      * @param fileName 导出的文件名称
-     * @param data  excel中填充的数据
+     * @param data     excel中填充的数据
      * @return
      */
-    public SysFileInfo createExcel(String template, String fileName, Map<String, Object> data){
+    public SysFileInfo createExcel(String template, String fileName, Map<String, Object> data) {
         FileOutputStream outputStream = null;
-        File file = new File(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator+UUID.randomUUID().toString()+".xlsx");
+        File file = new File(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator + UUID.randomUUID().toString() + ".xlsx");
         try {
 
             // 定义输出类型
-            outputStream =new FileOutputStream(file);
+            outputStream = new FileOutputStream(file);
 
             JxlsHelper jxlsHelper = JxlsHelper.getInstance();
             String templateFile = getClass().getClassLoader().getResource(template).getPath();
@@ -157,15 +162,17 @@ public class FileService {
             }
 
         }
-        return save(fileName,file);
+        return save(fileName, file);
     }
+
     /**
      * 创建文件
+     *
      * @param originalFileName
      * @param file
      * @return
      */
-    public SysFileInfo save(String originalFileName,File file){
+    public SysFileInfo save(String originalFileName, File file) {
         try {
             SysFileInfo fileInfo = new SysFileInfo();
             fileInfo.setCreateTime(new Date());
@@ -182,17 +189,17 @@ public class FileService {
         }
     }
 
-    public SysFileInfo get(Long id){
+    public SysFileInfo get(Long id) {
         SysFileInfo fileInfo = fileInfoService.getById(id);
-        fileInfo.setAblatePath(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator+fileInfo.getRealFileName());
+        fileInfo.setAblatePath(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator + fileInfo.getRealFileName());
         return fileInfo;
     }
 
     public SysFileInfo getByName(String fileName) {
         QueryWrapper<SysFileInfo> wrapper = new QueryWrapper<>();
-        wrapper.eq(SysFileInfo.COL_REAL_FILE_NAME,fileName);
+        wrapper.eq(SysFileInfo.COL_REAL_FILE_NAME, fileName);
         SysFileInfo fileInfo = fileInfoService.getOne(wrapper);
-        fileInfo.setAblatePath(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator+fileInfo.getRealFileName());
+        fileInfo.setAblatePath(cfgService.getCfgValue(CfgKey.SYSTEM_FILE_UPLOAD_PATH) + File.separator + fileInfo.getRealFileName());
         return fileInfo;
     }
 }

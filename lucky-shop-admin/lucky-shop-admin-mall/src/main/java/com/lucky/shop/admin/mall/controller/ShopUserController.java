@@ -5,10 +5,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.mall.domain.ShopUser;
 import com.lucky.shop.admin.mall.service.ShopUserService;
-import com.lucky.shop.common.dto.ResponseResult;
-import com.lucky.shop.common.factory.PageFactory;
-import com.lucky.shop.common.utils.DateUtil;
-import com.lucky.shop.common.utils.StringUtil;
+import com.lucky.shop.common.core.dto.ResponseResult;
+import com.lucky.shop.common.core.factory.PageFactory;
+import com.lucky.shop.common.core.utils.DateUtil;
+import com.lucky.shop.common.core.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +29,7 @@ public class ShopUserController {
 
     /**
      * 查询用户列表
+     *
      * @param mobile
      * @param nickName
      * @param startRegDate

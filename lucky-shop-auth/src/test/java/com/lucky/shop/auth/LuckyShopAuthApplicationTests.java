@@ -1,7 +1,7 @@
 package com.lucky.shop.auth;
 
 import com.lucky.shop.auth.controller.LoginController;
-import com.lucky.shop.common.dto.ResponseResult;
+import com.lucky.shop.common.core.dto.ResponseResult;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

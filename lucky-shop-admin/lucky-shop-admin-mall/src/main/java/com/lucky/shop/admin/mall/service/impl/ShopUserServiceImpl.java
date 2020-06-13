@@ -9,7 +9,7 @@ import com.lucky.shop.admin.mall.mapper.ShopUserMapper;
 import com.lucky.shop.admin.mall.service.ShopCartService;
 import com.lucky.shop.admin.mall.service.ShopOrderService;
 import com.lucky.shop.admin.mall.service.ShopUserService;
-import com.lucky.shop.common.tool.Maps;
+import com.lucky.shop.common.core.tool.Maps;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

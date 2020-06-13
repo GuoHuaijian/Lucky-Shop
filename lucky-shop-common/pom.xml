@@ -14,12 +14,24 @@
     <name>lucky-shop-common</name>
     <description>项目公共模块</description>
 
+    <modules>
+        <module>lucky-shop-common-core</module>
+        <module>lucky-shop-common-log</module>
+    </modules>
+
     <properties>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <ehcache.version>2.10.6</ehcache.version>
     </properties>
 
     <dependencies>
+
+        <!-- Common -->
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- Spring Boot -->
         <dependency>
@@ -71,6 +83,18 @@
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>${ehcache.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.2-android</version>
+            <scope>compile</scope>
         </dependency>
 
 

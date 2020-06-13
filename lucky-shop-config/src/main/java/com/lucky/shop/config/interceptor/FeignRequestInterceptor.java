@@ -11,9 +11,8 @@ import java.nio.charset.Charset;
 import java.util.Enumeration;
 
 /**
- *
  * Feign 拦截器
- *
+ * <p>
  * Description: 用于设置请求头，传递 Token
  *
  * @Author Guo Huaijian

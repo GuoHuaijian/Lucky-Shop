@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.admin.mall.mapper.ShopGoodsMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.admin.mall.domain.ShopGoods">
+        <!--@mbg.generated-->
+        <!--@Table t_shop_goods-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_by" jdbcType="BIGINT" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_by" jdbcType="BIGINT" property="modifyBy"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="descript" jdbcType="VARCHAR" property="descript"/>
+        <result column="detail" jdbcType="LONGVARCHAR" property="detail"/>
+        <result column="gallery" jdbcType="VARCHAR" property="gallery"/>
+        <result column="id_category" jdbcType="BIGINT" property="idCategory"/>
+        <result column="is_delete" jdbcType="TINYINT" property="isDelete"/>
+        <result column="is_hot" jdbcType="TINYINT" property="isHot"/>
+        <result column="is_new" jdbcType="TINYINT" property="isNew"/>
+        <result column="is_on_sale" jdbcType="TINYINT" property="isOnSale"/>
+        <result column="like_num" jdbcType="INTEGER" property="likeNum"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="pic" jdbcType="VARCHAR" property="pic"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="stock" jdbcType="INTEGER" property="stock"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_by, create_time, modify_by, modify_time, descript, detail, gallery, id_category,
+        is_delete, is_hot, is_new, is_on_sale, like_num, `name`, pic, price, stock
+    </sql>
+</mapper>

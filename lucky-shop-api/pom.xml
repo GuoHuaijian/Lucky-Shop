@@ -49,7 +49,7 @@
         <!-- Common -->
         <dependency>
             <groupId>com.lucky.shop</groupId>
-            <artifactId>lucky-shop-common</artifactId>
+            <artifactId>lucky-shop-common-core</artifactId>
             <version>${project.version}</version>
         </dependency>
 
