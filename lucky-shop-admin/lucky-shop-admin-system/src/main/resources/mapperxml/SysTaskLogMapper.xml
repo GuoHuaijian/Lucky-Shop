@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.admin.system.mapper.SysTaskLogMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.admin.system.domain.SysTaskLog">
+        <!--@mbg.generated-->
+        <!--@Table t_sys_task_log-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="exec_at" jdbcType="TIMESTAMP" property="execAt"/>
+        <result column="exec_success" jdbcType="INTEGER" property="execSuccess"/>
+        <result column="id_task" jdbcType="BIGINT" property="idTask"/>
+        <result column="job_exception" jdbcType="LONGVARCHAR" property="jobException"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, exec_at, exec_success, id_task, job_exception, `name`
+    </sql>
+</mapper>

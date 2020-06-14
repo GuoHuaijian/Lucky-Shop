@@ -141,7 +141,6 @@ public class SysCfgController {
     @RequestMapping(value = "saveGroup", method = RequestMethod.POST)
     @BussinessLog(value = "编辑参数")
     public ResponseResult saveGroup(String json) {
-
         Map<String, String> map = Json.fromJson(Map.class, json);
         for (Map.Entry<String, String> entry : map.entrySet()) {
             cfgService.update(entry.getKey(), entry.getValue());

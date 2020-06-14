@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.admin.system.mapper.SysRelationMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.admin.system.domain.SysRelation">
+        <!--@mbg.generated-->
+        <!--@Table t_sys_relation-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="menuid" jdbcType="BIGINT" property="menuid"/>
+        <result column="roleid" jdbcType="BIGINT" property="roleid"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, menuid, roleid
+    </sql>
+    <delete id="deleteByRoleId">
+        delete from t_sys_relation where roleid=#{roleId}
+    </delete>
+</mapper>

@@ -17,6 +17,7 @@
     <modules>
         <module>lucky-shop-common-core</module>
         <module>lucky-shop-common-log</module>
+        <module>lucky-shop-common-redis</module>
     </modules>
 
     <properties>

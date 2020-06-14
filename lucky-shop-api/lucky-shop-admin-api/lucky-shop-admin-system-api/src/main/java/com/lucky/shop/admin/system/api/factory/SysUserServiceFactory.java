@@ -24,6 +24,11 @@ public class SysUserServiceFactory implements FallbackFactory<RemoteSysUserServi
             public SysUser getUserByAccount(String account) {
                 return null;
             }
+
+            @Override
+            public SysUser getUserById(String id) {
+                return null;
+            }
         };
     }
 }

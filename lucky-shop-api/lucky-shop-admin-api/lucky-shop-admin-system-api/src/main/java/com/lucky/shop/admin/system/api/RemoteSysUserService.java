@@ -26,4 +26,13 @@ public interface RemoteSysUserService {
      */
     @GetMapping("userInfo/{account}")
     SysUser getUserByAccount(@PathVariable String account);
+
+    /**
+     * 根据id获取用户信息
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("userInfo/{id}")
+    SysUser getUserById(@PathVariable String id);
 }

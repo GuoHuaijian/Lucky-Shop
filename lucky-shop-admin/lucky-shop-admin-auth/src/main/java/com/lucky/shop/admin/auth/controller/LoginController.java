@@ -10,6 +10,7 @@ import com.lucky.shop.admin.auth.domain.SysUser;
 import com.lucky.shop.admin.auth.service.SysUserService;
 import com.lucky.shop.common.core.dto.ResponseResult;
 import com.lucky.shop.common.core.tool.Maps;
+import com.lucky.shop.common.redis.service.RedisService;
 import org.nutz.mapl.Mapl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -59,6 +60,9 @@ public class LoginController {
 
     @Autowired
     private TokenStore tokenStore;
+
+    @Autowired
+    private RedisService redisService;
 
     /**
      * 登录
@@ -118,6 +122,7 @@ public class LoginController {
         }
         try {
             AuthorizationUser authorizationInfo = userService.getAuthorizationInfo(username);
+            redisService.setCacheObject(com.lucky.shop.common.core.utils.HttpUtil.getToken(), authentication);
             Map map = Maps.newHashMap("name", user.getName(), "role", "admin", "roles", authorizationInfo.getRoleCodes());
             map.put("permissions", authorizationInfo.getUrls());
             Map profile = (Map) Mapl.toMaplist(user);
