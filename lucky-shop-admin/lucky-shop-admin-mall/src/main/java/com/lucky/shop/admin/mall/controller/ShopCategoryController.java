@@ -6,6 +6,7 @@ import com.lucky.shop.admin.mall.domain.ShopAttrKey;
 import com.lucky.shop.admin.mall.domain.ShopCategory;
 import com.lucky.shop.admin.mall.service.ShopCategoryService;
 import com.lucky.shop.common.core.dto.ResponseResult;
+import com.lucky.shop.common.log.annotation.BussinessLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,7 +54,7 @@ public class ShopCategoryController {
      * @return
      */
     @PostMapping()
-//    @BussinessLog(value = "编辑商品类别", key = "name")
+    @BussinessLog(value = "编辑商品类别", key = "name")
 //    @RequiresPermissions(value = {Permission.CATEGORY_EDIT})
     public ResponseResult save(@ModelAttribute ShopCategory category) {
         categoryService.saveCategory(category);
@@ -67,7 +68,7 @@ public class ShopCategoryController {
      * @return
      */
     @DeleteMapping()
-//    @BussinessLog(value = "删除商品类别", key = "id")
+    @BussinessLog(value = "删除商品类别", key = "id")
 //    @RequiresPermissions(value = {Permission.CATEGORY_EDIT})
     public ResponseResult remove(Long id) {
         categoryService.remove(id);

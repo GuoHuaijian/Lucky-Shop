@@ -26,6 +26,11 @@
             <artifactId>lucky-shop-admin-ops-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-admin-system-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.aspectj</groupId>

@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author Admin
  */
 @SpringCloudApplication
-@EnableFeignClients(basePackages = "com.lucky.shop.admin.system.api")
+@EnableFeignClients(basePackages = "com.lucky.shop.admin.**.api")
 @MapperScan(basePackages = "com.lucky.shop.admin.mall.mapper")
 public class LuckyShopAdminMallApplication {
 

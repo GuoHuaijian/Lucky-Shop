@@ -1,6 +1,8 @@
 package com.lucky.shop.common.log.aspect;
 
 
+import com.lucky.shop.admin.system.api.RemoteSysUserService;
+import com.lucky.shop.admin.system.api.domain.SysUser;
 import com.lucky.shop.common.core.tool.LogObjectHolder;
 import com.lucky.shop.common.core.utils.BeanUtil;
 import com.lucky.shop.common.core.utils.HttpUtil;
@@ -16,6 +18,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -33,6 +36,9 @@ import java.util.Map;
 @Aspect
 @Component
 public class LogAspect {
+
+    @Autowired
+    private RemoteSysUserService sysUserService;
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -75,8 +81,8 @@ public class LogAspect {
         if (StringUtil.isNotEmpty(token)) {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String account = authentication.getName();
-            // TODO 添加远程查询用户id
-//            idUser = JwtUtil.getUserId(token);
+            SysUser sysUser = sysUserService.getUserByAccount(account);
+            idUser = sysUser.getId();
         }
         if (idUser == null) {
             return;

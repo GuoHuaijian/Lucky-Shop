@@ -1,5 +1,7 @@
 package com.lucky.shop.common.log.log;
 
+import com.lucky.shop.admin.ops.api.RemoteSysLoginLogService;
+import com.lucky.shop.admin.ops.api.RemoteSysOperationLogService;
 import com.lucky.shop.admin.ops.api.domain.LoginLog;
 import com.lucky.shop.admin.ops.api.domain.OperationLog;
 import com.lucky.shop.common.core.enums.LogSucceed;
@@ -7,6 +9,7 @@ import com.lucky.shop.common.core.enums.LogType;
 import com.lucky.shop.common.core.utils.ToolUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.TimerTask;
 
@@ -19,8 +22,12 @@ import java.util.TimerTask;
 public class LogTaskFactory {
 
     private static Logger logger = LoggerFactory.getLogger(LogManager.class);
-//    private static LoginLogRepository loginLogRepository = SpringContextHolder.getBean(LoginLogRepository.class);
-//    private static OperationLogRepository operationLogRepository = SpringContextHolder.getBean(OperationLogRepository.class);
+
+    @Autowired
+    private static RemoteSysLoginLogService sysLoginLogService;
+
+    @Autowired
+    private static RemoteSysOperationLogService operationLogService;
 
     public static TimerTask loginLog(final Long userId, final String ip) {
         return new TimerTask() {
@@ -28,7 +35,7 @@ public class LogTaskFactory {
             public void run() {
                 try {
                     LoginLog loginLog = LogFactory.createLoginLog(LogType.LOGIN, userId, null, ip);
-//                    loginLogRepository.save(loginLog);
+                    sysLoginLogService.save(loginLog);
                 } catch (Exception e) {
                     logger.error("创建登录日志异常!", e);
                 }
@@ -43,7 +50,7 @@ public class LogTaskFactory {
                 LoginLog loginLog = LogFactory.createLoginLog(
                         LogType.LOGIN_FAIL, null, "账号:" + username + "," + msg, ip);
                 try {
-//                    loginLogRepository.save(loginLog);
+                    sysLoginLogService.save(loginLog);
                 } catch (Exception e) {
                     logger.error("创建登录失败异常!", e);
                 }
@@ -57,7 +64,7 @@ public class LogTaskFactory {
             public void run() {
                 LoginLog loginLog = LogFactory.createLoginLog(LogType.EXIT, userId, null, ip);
                 try {
-//                    loginLogRepository.save(loginLog);
+                    sysLoginLogService.save(loginLog);
                 } catch (Exception e) {
                     logger.error("创建退出日志异常!", e);
                 }
@@ -72,7 +79,7 @@ public class LogTaskFactory {
                 OperationLog operationLog = LogFactory.createOperationLog(
                         LogType.BUSSINESS, userId, bussinessName, clazzName, methodName, msg, LogSucceed.SUCCESS);
                 try {
-//                    operationLogRepository.save(operationLog);
+                    operationLogService.save(operationLog);
                 } catch (Exception e) {
                     logger.error("创建业务日志异常!", e);
                 }
@@ -88,12 +95,11 @@ public class LogTaskFactory {
                 OperationLog operationLog = LogFactory.createOperationLog(
                         LogType.EXCEPTION, userId, "", null, null, msg, LogSucceed.FAIL);
                 try {
-//                    operationLogRepository.save(operationLog);
+                    operationLogService.save(operationLog);
                 } catch (Exception e) {
                     logger.error("创建异常日志异常!", e);
                 }
             }
         };
     }
-    // TODO 添加远程调用日志插入
 }

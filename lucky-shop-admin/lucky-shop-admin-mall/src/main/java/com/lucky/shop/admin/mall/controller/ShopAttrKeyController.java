@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.mall.domain.ShopAttrKey;
 import com.lucky.shop.admin.mall.service.ShopAttrKeyService;
 import com.lucky.shop.common.core.dto.ResponseResult;
+import com.lucky.shop.common.log.annotation.BussinessLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,7 @@ public class ShopAttrKeyController {
      * @return
      */
     @PostMapping()
-//    @BussinessLog(value = "编辑商品属性名", key = "name")
+    @BussinessLog(value = "编辑商品属性名", key = "name")
     public ResponseResult save(@ModelAttribute ShopAttrKey attrKey) {
         attrKeyService.SaveOrUpdateAttrKey(attrKey);
         return ResponseResult.success();
@@ -46,7 +47,7 @@ public class ShopAttrKeyController {
      * @return
      */
     @DeleteMapping()
-//    @BussinessLog(value = "删除商品属性名", key = "id")
+    @BussinessLog(value = "删除商品属性名", key = "id")
     public ResponseResult remove(Long id) {
         attrKeyService.remove(id);
         return ResponseResult.success();
@@ -60,7 +61,7 @@ public class ShopAttrKeyController {
      * @return
      */
     @PostMapping(value = "updateAttrName")
-//    @BussinessLog(value = "修改商品属性名", key = "id")
+    @BussinessLog(value = "修改商品属性名", key = "id")
     public ResponseResult updateAttrName(@RequestParam("id") Long id, @RequestParam("attrName") String attrName) {
         attrKeyService.updateAttrName(id, attrName);
         return ResponseResult.success();

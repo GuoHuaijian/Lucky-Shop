@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.mall.domain.ShopGoods;
 import com.lucky.shop.admin.mall.service.ShopGoodsService;
 import com.lucky.shop.common.core.dto.ResponseResult;
+import com.lucky.shop.common.log.annotation.BussinessLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +40,7 @@ public class ShopGoodsController {
      * @return
      */
     @PostMapping(value = "/saveBaseInfo")
-//    @BussinessLog(value = "保存商品基本信息", key = "name")
+    @BussinessLog(value = "保存商品基本信息", key = "name")
 //    @RequiresPermissions(value = {Permission.GOODS_EDIT})
     public ResponseResult saveBaseInfo(@RequestBody ShopGoods goods) {
         if (goods.getId() == null) {
@@ -55,7 +56,7 @@ public class ShopGoodsController {
      * @return
      */
     @PostMapping()
-//    @BussinessLog(value = "编辑商品", key = "name")
+    @BussinessLog(value = "编辑商品", key = "name")
 //    @RequiresPermissions(value = {Permission.GOODS_EDIT})
     public ResponseResult save(@RequestBody @Valid ShopGoods goods) {
         goodsService.saveOrUpdateGoods(goods);
@@ -69,7 +70,7 @@ public class ShopGoodsController {
      * @return
      */
     @DeleteMapping()
-//    @BussinessLog(value = "删除商品", key = "id")
+    @BussinessLog(value = "删除商品", key = "id")
 //    @RequiresPermissions(value = {Permission.GOODS_EDIT})
     public ResponseResult remove(Long id) {
         goodsService.remove(id);
@@ -96,7 +97,7 @@ public class ShopGoodsController {
      */
     @PostMapping(value = "/changeIsOnSale")
 //    @RequiresPermissions(value = {Permission.GOODS_EDIT})
-//    @BussinessLog(value = "上架/下架商品", key = "id")
+    @BussinessLog(value = "上架/下架商品", key = "id")
     public ResponseResult changeIsOnSale(@RequestParam("id") Long id, @RequestParam("isOnSale") Boolean isOnSale) {
         ShopGoods goods = goodsService.changeIsOnSale(id, isOnSale);
         return ResponseResult.success(goods);

@@ -12,6 +12,7 @@ import com.lucky.shop.common.core.factory.PageFactory;
 import com.lucky.shop.common.core.tool.LogObjectHolder;
 import com.lucky.shop.common.core.tool.Maps;
 import com.lucky.shop.common.core.utils.StringUtil;
+import com.lucky.shop.common.log.annotation.BussinessLog;
 import lombok.extern.slf4j.Slf4j;
 import org.nutz.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +103,7 @@ public class SysCfgController {
      * @return
      */
     @PostMapping()
-//    @BussinessLog(value = "编辑参数", key = "cfgName")
+    @BussinessLog(value = "编辑参数", key = "cfgName")
     public ResponseResult save(@ModelAttribute @Valid SysCfg cfg) {
         if (cfg.getId() != null) {
             SysCfg old = cfgService.getById(cfg.getId());
@@ -124,7 +125,7 @@ public class SysCfgController {
      * @return
      */
     @DeleteMapping()
-//    @BussinessLog(value = "删除参数", key = "id")
+    @BussinessLog(value = "删除参数", key = "id")
     public ResponseResult remove(@RequestParam Long id) {
         log.info("id:{}", id);
         cfgService.deleteById(id);
@@ -138,7 +139,7 @@ public class SysCfgController {
      * @return
      */
     @RequestMapping(value = "saveGroup", method = RequestMethod.POST)
-//    @BussinessLog(value = "编辑参数")
+    @BussinessLog(value = "编辑参数")
     public ResponseResult saveGroup(String json) {
 
         Map<String, String> map = Json.fromJson(Map.class, json);

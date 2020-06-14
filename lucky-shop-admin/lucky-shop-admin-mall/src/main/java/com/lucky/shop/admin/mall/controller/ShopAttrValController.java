@@ -3,6 +3,7 @@ package com.lucky.shop.admin.mall.controller;
 import com.lucky.shop.admin.mall.domain.ShopAttrVal;
 import com.lucky.shop.admin.mall.service.ShopAttrValService;
 import com.lucky.shop.common.core.dto.ResponseResult;
+import com.lucky.shop.common.log.annotation.BussinessLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -55,7 +56,7 @@ public class ShopAttrValController {
      * @return
      */
     @PostMapping()
-//    @BussinessLog(value = "编辑商品属性值", key = "attrVal")
+    @BussinessLog(value = "编辑商品属性值", key = "attrVal")
     public ResponseResult save(@RequestParam("idAttrKey") Long idAttrKey,
                                @RequestParam(value = "id", required = false) Long id,
                                @RequestParam("attrVal") String attrVal) {
@@ -70,7 +71,7 @@ public class ShopAttrValController {
      * @return
      */
     @DeleteMapping()
-//    @BussinessLog(value = "删除商品属性值", key = "id")
+    @BussinessLog(value = "删除商品属性值", key = "id")
     public ResponseResult remove(Long id) {
         attrValService.remove(id);
         return ResponseResult.success();
@@ -84,7 +85,7 @@ public class ShopAttrValController {
      * @return
      */
     @PostMapping(value = "updateAttrVal")
-//    @BussinessLog(value = "修改商品属性值", key = "id")
+    @BussinessLog(value = "修改商品属性值", key = "id")
     public ResponseResult updateAttrName(@RequestParam("id") Long id, @RequestParam("attrVal") String attrVal) {
         attrValService.updateAttrName(id, attrVal);
         return ResponseResult.success();

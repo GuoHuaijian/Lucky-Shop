@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.mall.domain.ShopGoodsSku;
 import com.lucky.shop.admin.mall.service.ShopGoodsSkuService;
 import com.lucky.shop.common.core.dto.ResponseResult;
+import com.lucky.shop.common.log.annotation.BussinessLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +39,7 @@ public class ShopGoodsSkuController {
      * @return
      */
     @PostMapping()
-//    @BussinessLog(value = "编辑商品SKU", key = "name")
+    @BussinessLog(value = "编辑商品SKU", key = "name")
 //    @RequiresPermissions(value = {Permission.GOODS_EDIT})
     public ResponseResult save(@RequestBody ShopGoodsSku sku) {
         ShopGoodsSku goodsSku = goodsSkuService.saveSku(sku);
@@ -52,7 +53,7 @@ public class ShopGoodsSkuController {
      * @return
      */
     @DeleteMapping()
-//    @BussinessLog(value = "删除商品SKU", key = "id")
+    @BussinessLog(value = "删除商品SKU", key = "id")
 //    @RequiresPermissions(value = {Permission.GOODS_EDIT})
     public ResponseResult remove(Long id) {
         goodsSkuService.remove(id);
