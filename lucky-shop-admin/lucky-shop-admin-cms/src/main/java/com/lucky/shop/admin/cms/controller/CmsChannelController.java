@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2020/6/15 14:33
  */
 @RestController
-@RequestMapping("/channel")
+@RequestMapping("cms/channel")
 public class CmsChannelController {
 
     @Autowired

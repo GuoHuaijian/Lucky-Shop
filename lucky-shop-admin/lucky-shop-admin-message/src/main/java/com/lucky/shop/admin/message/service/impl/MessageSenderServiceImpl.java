@@ -18,7 +18,7 @@ import java.util.List;
  * @Date 2020/6/15 19:10
  */
 @Service
-public class MessageSenderServiceImpl extends ServiceImpl<MessageSenderMapper, MessageSender> implements MessageSenderService{
+public class MessageSenderServiceImpl extends ServiceImpl<MessageSenderMapper, MessageSender> implements MessageSenderService {
 
     /**
      * 消息发送者列表
@@ -49,7 +49,7 @@ public class MessageSenderServiceImpl extends ServiceImpl<MessageSenderMapper, M
      */
     @Override
     public void saveSender(MessageSender messageSender) {
-        if(messageSender.getId()!=null){
+        if (messageSender.getId() != null) {
             MessageSender old = this.getById(messageSender.getId());
         }
         this.save(messageSender);

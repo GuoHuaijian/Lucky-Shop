@@ -17,7 +17,7 @@ import javax.validation.Valid;
  * @Date 2020/6/15 19:32
  */
 @RestController
-@RequestMapping("/message/template")
+@RequestMapping("message/template")
 public class MessageTemplateController {
 
     @Autowired

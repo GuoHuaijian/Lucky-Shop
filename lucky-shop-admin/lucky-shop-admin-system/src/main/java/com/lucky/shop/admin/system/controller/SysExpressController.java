@@ -18,7 +18,7 @@ import java.util.List;
  * @Date 2020/6/14 19:19
  */
 @RestController
-@RequestMapping("/sys/express")
+@RequestMapping("system/sys/express")
 public class SysExpressController {
 
     @Autowired

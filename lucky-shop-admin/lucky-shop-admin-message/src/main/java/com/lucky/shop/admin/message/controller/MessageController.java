@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/6/15 18:59
  */
 @RestController
-@RequestMapping("/message")
+@RequestMapping("message")
 public class MessageController {
 
     @Autowired

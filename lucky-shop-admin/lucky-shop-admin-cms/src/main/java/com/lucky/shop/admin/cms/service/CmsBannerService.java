@@ -18,7 +18,7 @@ public interface CmsBannerService extends IService<CmsBanner> {
      *
      * @param banner
      */
-     void saveBanner(CmsBanner banner);
+    void saveBanner(CmsBanner banner);
 
     /**
      * 删除banner
@@ -33,6 +33,6 @@ public interface CmsBannerService extends IService<CmsBanner> {
      * @param title
      * @return
      */
-     List<CmsBanner> list(String title) ;
+    List<CmsBanner> list(String title);
 
 }

@@ -15,12 +15,17 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/6/13 20:20
  */
 @RestController
-@RequestMapping("/shop/goods/attr/key")
+@RequestMapping("mall/shop/goods/attr/key")
 public class ShopAttrKeyController {
 
     @Autowired
     private ShopAttrKeyService attrKeyService;
 
+    /**
+     * 获取属性列表
+     *
+     * @return
+     */
     @GetMapping(value = "/list")
     public ResponseResult list() {
         Page<ShopAttrKey> page = attrKeyService.attrKeyList();

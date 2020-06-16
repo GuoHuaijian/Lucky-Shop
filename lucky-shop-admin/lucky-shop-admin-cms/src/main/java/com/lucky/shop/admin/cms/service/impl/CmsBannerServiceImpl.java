@@ -26,9 +26,9 @@ public class CmsBannerServiceImpl extends ServiceImpl<CmsBannerMapper, CmsBanner
      */
     @Override
     public void saveBanner(CmsBanner banner) {
-        if(banner.getId()==null){
+        if (banner.getId() == null) {
             this.save(banner);
-        }else {
+        } else {
             this.updateById(banner);
         }
     }
@@ -52,12 +52,12 @@ public class CmsBannerServiceImpl extends ServiceImpl<CmsBannerMapper, CmsBanner
     @Override
     public List<CmsBanner> list(String title) {
         List<CmsBanner> list;
-        if(StringUtil.isNotEmpty(title)){
+        if (StringUtil.isNotEmpty(title)) {
             QueryWrapper<CmsBanner> wrapper = new QueryWrapper<>();
-            wrapper.like(CmsBanner.COL_TITLE,title);
-             list = this.list(wrapper);
+            wrapper.like(CmsBanner.COL_TITLE, title);
+            list = this.list(wrapper);
             return list;
-        }else {
+        } else {
             list = this.list();
             return list;
         }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/6/14 13:13
  */
 @RestController
-@RequestMapping("/loginLog")
+@RequestMapping("ops/loginLog")
 public class SysLoginLogController {
 
     @Autowired

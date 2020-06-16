@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/6/5 12:58
  */
 @RestController
-@RequestMapping("/shop/cart")
+@RequestMapping("mall/shop/cart")
 public class ShopCartController {
 
     @Autowired

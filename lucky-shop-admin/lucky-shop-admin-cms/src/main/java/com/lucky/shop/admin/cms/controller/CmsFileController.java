@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/6/15 15:04
  */
 @RestController
-@RequestMapping("/fileMgr")
+@RequestMapping("cms/fileMgr")
 public class CmsFileController {
 
     @Autowired

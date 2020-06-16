@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/6/15 14:05
  */
 @RestController
-@RequestMapping("/article")
+@RequestMapping("cms/article")
 public class CmsArticleController extends BaseController {
 
     @Autowired
@@ -29,11 +29,11 @@ public class CmsArticleController extends BaseController {
      * @return
      */
     @PostMapping()
-    @BussinessLog(value = "编辑文章",key="name")
+    @BussinessLog(value = "编辑文章", key = "name")
 //    @RequiresPermissions(value = {Permission.ARTICLE_EDIT})
-    public ResponseResult save(){
+    public ResponseResult save() {
         CmsArticle article = getFromJson(CmsArticle.class);
-       articleService.saveArticle(article);
+        articleService.saveArticle(article);
         return ResponseResult.success();
     }
 
@@ -44,9 +44,9 @@ public class CmsArticleController extends BaseController {
      * @return
      */
     @DeleteMapping()
-    @BussinessLog(value = "删除文章",key="id")
+    @BussinessLog(value = "删除文章", key = "id")
 //    @RequiresPermissions(value = {Permission.ARTICLE_DEL})
-    public ResponseResult remove(Long id){
+    public ResponseResult remove(Long id) {
         articleService.remove(id);
         return ResponseResult.success();
     }
@@ -76,9 +76,9 @@ public class CmsArticleController extends BaseController {
     @GetMapping(value = "/list")
 //    @RequiresPermissions(value = {Permission.ARTICLE})
     public ResponseResult list(@RequestParam(required = false) String title,
-                       @RequestParam(required = false) String author,
-                       @RequestParam(required = false) String startDate,
-                       @RequestParam(required = false) String endDate
+                               @RequestParam(required = false) String author,
+                               @RequestParam(required = false) String startDate,
+                               @RequestParam(required = false) String endDate
     ) {
         Page<CmsArticle> page = articleService.list(title, author, startDate, endDate);
         return ResponseResult.success(page);

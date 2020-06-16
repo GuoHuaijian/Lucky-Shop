@@ -1,11 +1,14 @@
 #服务端口
 server:
-  port: 9001
+  port: 9999
 
 spring:
   #服务名
   application:
     name: lucky-shop-auth
+
+  main:
+    allow-bean-definition-overriding: true
 
   #数据库配置
   datasource:
@@ -39,7 +42,7 @@ auth:
     client_id: admin
     client_secret: admin
     #获取token地址
-    access-token-url: http://localhost:9001/oauth/token
+    access-token-url: http://localhost:9999/oauth/token
 
 management:
   endpoints:

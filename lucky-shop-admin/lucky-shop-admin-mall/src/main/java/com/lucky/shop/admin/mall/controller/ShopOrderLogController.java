@@ -19,7 +19,7 @@ import java.util.List;
  * @Date 2020/6/13 19:20
  */
 @RestController
-@RequestMapping("/shop/order/log")
+@RequestMapping("mall/shop/order/log")
 public class ShopOrderLogController {
 
     @Autowired

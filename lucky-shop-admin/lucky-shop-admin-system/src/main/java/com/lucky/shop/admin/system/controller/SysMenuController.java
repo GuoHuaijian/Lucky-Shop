@@ -22,7 +22,7 @@ import java.util.Map;
  */
 @Slf4j
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("system/menu")
 public class SysMenuController {
 
     @Autowired

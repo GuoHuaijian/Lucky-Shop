@@ -26,7 +26,7 @@ import java.util.Map;
  */
 @Slf4j
 @RestController
-@RequestMapping("/role")
+@RequestMapping("system/role")
 public class SysRoleController {
 
     @Autowired

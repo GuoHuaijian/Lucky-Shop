@@ -9,9 +9,9 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
- /**
-  * 历史消息
-  *
+/**
+ * 历史消息
+ *
  * @Author Guo Huaijian
  * @Date 2020/6/15 18:58
  */

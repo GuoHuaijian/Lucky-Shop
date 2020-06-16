@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @Date 2020/6/15 14:04
  */
 @Service
-public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleMapper, CmsArticle> implements CmsArticleService{
+public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleMapper, CmsArticle> implements CmsArticleService {
 
     /**
      * 编辑文章
@@ -28,7 +28,7 @@ public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleMapper, CmsArti
      */
     @Override
     public void saveArticle(CmsArticle article) {
-        if(article.getId()!=null){
+        if (article.getId() != null) {
             CmsArticle old = this.getById(article.getId());
             old.setAuthor(article.getAuthor());
             old.setContent(article.getContent());
@@ -36,7 +36,7 @@ public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleMapper, CmsArti
             old.setImg(article.getImg());
             old.setTitle(article.getTitle());
             this.updateById(old);
-        }else {
+        } else {
             this.save(article);
         }
     }
@@ -75,17 +75,17 @@ public class CmsArticleServiceImpl extends ServiceImpl<CmsArticleMapper, CmsArti
     public Page<CmsArticle> list(String title, String author, String startDate, String endDate) {
         QueryWrapper<CmsArticle> wrapper = new QueryWrapper<>();
         Page<CmsArticle> page = new PageFactory<CmsArticle>().defaultPage();
-        if (StringUtil.isNotEmpty(title)){
-            wrapper.like(CmsArticle.COL_TITLE,title);
+        if (StringUtil.isNotEmpty(title)) {
+            wrapper.like(CmsArticle.COL_TITLE, title);
         }
-        if (StringUtil.isNotEmpty(author)){
-            wrapper.eq(CmsArticle.COL_AUTHOR,author);
+        if (StringUtil.isNotEmpty(author)) {
+            wrapper.eq(CmsArticle.COL_AUTHOR, author);
         }
-        if (StringUtil.isNotEmpty(startDate)){
-            wrapper.ge(CmsArticle.COL_CREATE_TIME, DateUtil.parse(startDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(startDate)) {
+            wrapper.ge(CmsArticle.COL_CREATE_TIME, DateUtil.parse(startDate, "yyyyMMddHHmmss"));
         }
-        if (StringUtil.isNotEmpty(endDate)){
-            wrapper.le(CmsArticle.COL_CREATE_TIME, DateUtil.parse(endDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(endDate)) {
+            wrapper.le(CmsArticle.COL_CREATE_TIME, DateUtil.parse(endDate, "yyyyMMddHHmmss"));
         }
         IPage<CmsArticle> articlePage = this.page(page, wrapper);
         return (Page<CmsArticle>) articlePage;

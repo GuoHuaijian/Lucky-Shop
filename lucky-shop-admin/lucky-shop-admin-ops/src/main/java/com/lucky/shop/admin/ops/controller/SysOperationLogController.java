@@ -16,7 +16,7 @@ import java.util.List;
  * @Date 2020/6/14 13:13
  */
 @RestController
-@RequestMapping("/log")
+@RequestMapping("ops/log")
 public class SysOperationLogController {
 
     @Autowired

@@ -15,7 +15,7 @@ import java.util.List;
  * @Date 2020/6/15 14:31
  */
 @Service
-public class CmsChannelServiceImpl extends ServiceImpl<CmsChannelMapper, CmsChannel> implements CmsChannelService{
+public class CmsChannelServiceImpl extends ServiceImpl<CmsChannelMapper, CmsChannel> implements CmsChannelService {
 
     /**
      * 编辑栏目
@@ -24,9 +24,9 @@ public class CmsChannelServiceImpl extends ServiceImpl<CmsChannelMapper, CmsChan
      */
     @Override
     public void saveChannel(CmsChannel channel) {
-        if(channel.getId()==null) {
+        if (channel.getId() == null) {
             this.save(channel);
-        }else{
+        } else {
             this.updateById(channel);
         }
     }

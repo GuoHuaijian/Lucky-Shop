@@ -29,7 +29,7 @@ import java.util.Map;
  * @Date 2020/6/5 16:51
  */
 @RestController
-@RequestMapping("/cfg")
+@RequestMapping("system/cfg")
 @Slf4j
 public class SysCfgController {
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @Author Guo Huaijian
  * @Date 2020/6/14 14:35
  */
-@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_OPS, path = "loginLog", configuration =
+@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_OPS, path = "ops/loginLog", configuration =
         FeignRequestConfiguration.class, fallbackFactory = SysLoginLogServiceFactory.class)
 public interface RemoteSysLoginLogService {
 

@@ -1,0 +1,107 @@
+#服务端口
+server:
+  port: 9527
+
+spring:
+  #服务名
+  application:
+    name: lucky-shop-gateway
+
+  main:
+    allow-bean-definition-overriding: true
+
+  #Cloud相关配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+      # 路由网关配置
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+          # 配置路由规则
+      routes:
+        # 采用自定义路由 ID（有固定用法，不同的 id 有不同的功能，详见：https://cloud.spring.io/spring-cloud-gateway/2.0.x/single/spring-cloud-gateway.html#gateway-route-filters）
+        # lucky-shop-admin-auth
+        - id: LUCKY-SHOP-ADMIN-AUTH
+          # 采用 LoadBalanceClient 方式请求，以 lb:// 开头，后面的是注册在 Nacos 上的服务名
+          uri: lb://lucky-shop-admin-auth
+          # Predicate 翻译过来是“谓词”的意思，必须，主要作用是匹配用户的请求，有很多种用法
+          predicates:
+            # 路径匹配，以 api 开头，直接配置是不生效的，看 filters 配置
+            - Path=/dev-api/auth/**
+          filters:
+            # 前缀过滤，默认配置下，我们的请求路径是 http://localhost:8888/business-oauth2/** 这时会路由到指定的服务
+            # 此处配置去掉 1 个路径前缀，再配置上面的 Path=/api/**，就能按照 http://localhost:8888/api/** 的方式访问了
+            - StripPrefix=1
+
+        # lucky-shop-admin-cms
+        - id: LUCKY-SHOP-ADMIN-CMS
+          uri: lb://lucky-shop-admin-cms
+          predicates:
+            - Path=/dev-api/cms/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-admin-dashboard
+        - id: LUCKY-SHOP-ADMIN-DASHBOARD
+          uri: lb://lucky-shop-admin-dashboard
+          predicates:
+            - Path=/dev-api/dashboard/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-admin-mall
+        - id: LUCKY-SHOP-ADMIN-MALL
+          uri: lb://lucky-shop-admin-mall
+          predicates:
+            - Path=/dev-api/mall/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-admin-message
+        - id: LUCKY-SHOP-ADMIN-MESSAGE
+          uri: lb://lucky-shop-admin-message
+          predicates:
+            - Path=/dev-api/message/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-admin-ops
+        - id: LUCKY-SHOP-ADMIN-OPS
+          uri: lb://lucky-shop-admin-ops
+          predicates:
+            - Path=/dev-api/ops/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-admin-seo
+        - id: LUCKY-SHOP-ADMIN-SEO
+          uri: lb://lucky-shop-admin-seo
+          predicates:
+            - Path=/dev-api/seo/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-admin-system
+        - id: LUCKY-SHOP-ADMIN-SYSTEM
+          uri: lb://lucky-shop-admin-system
+          predicates:
+            - Path=/dev-api/system/**
+          filters:
+            - StripPrefix=1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 日志配置
+logging:
+  level:
+    com.lucky.shop.gateway: debug
+    org.springframework: debug

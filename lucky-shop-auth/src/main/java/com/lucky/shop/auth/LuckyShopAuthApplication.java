@@ -2,12 +2,12 @@ package com.lucky.shop.auth;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
 
 /**
  * @author Admin
  */
-@SpringBootApplication
+@SpringCloudApplication
 @MapperScan(basePackages = "com.lucky.shop.auth.mapper")
 public class LuckyShopAuthApplication {
 

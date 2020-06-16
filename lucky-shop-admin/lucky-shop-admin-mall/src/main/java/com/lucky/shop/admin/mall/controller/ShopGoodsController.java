@@ -15,7 +15,7 @@ import javax.validation.Valid;
  * @Date 2020/6/13 23:02
  */
 @RestController
-@RequestMapping("/shop/goods")
+@RequestMapping("mall/shop/goods")
 public class ShopGoodsController {
 
     @Autowired

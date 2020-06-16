@@ -10,14 +10,14 @@ import com.lucky.shop.admin.cms.domain.CmsArticle;
  * @Author Guo Huaijian
  * @Date 2020/6/15 14:04
  */
-public interface CmsArticleService extends IService<CmsArticle>{
+public interface CmsArticleService extends IService<CmsArticle> {
 
     /**
      * 编辑文章
      *
      * @param article
      */
-     void saveArticle(CmsArticle article);
+    void saveArticle(CmsArticle article);
 
     /**
      * 删除文章
@@ -25,7 +25,7 @@ public interface CmsArticleService extends IService<CmsArticle>{
      * @param id
      * @return
      */
-     void remove(Long id);
+    void remove(Long id);
 
     /**
      * 根据id查询文章
@@ -33,7 +33,7 @@ public interface CmsArticleService extends IService<CmsArticle>{
      * @param id
      * @return
      */
-     CmsArticle get( Long id);
+    CmsArticle get(Long id);
 
     /**
      * 根据条件查询文章列表

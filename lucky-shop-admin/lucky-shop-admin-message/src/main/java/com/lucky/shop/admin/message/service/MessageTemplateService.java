@@ -10,7 +10,7 @@ import com.lucky.shop.admin.message.domain.MessageTemplate;
  * @Author Guo Huaijian
  * @Date 2020/6/15 19:25
  */
-public interface MessageTemplateService extends IService<MessageTemplate>{
+public interface MessageTemplateService extends IService<MessageTemplate> {
 
     /**
      * 消息模板列表
@@ -24,13 +24,13 @@ public interface MessageTemplateService extends IService<MessageTemplate>{
      *
      * @param messageTemplate
      */
-     void saveTemplate(MessageTemplate messageTemplate);
+    void saveTemplate(MessageTemplate messageTemplate);
 
     /**
      * 删除消息模板
      *
      * @param id
      */
-     void remove(Long id);
+    void remove(Long id);
 
 }

@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @Date 2020/6/15 18:58
  */
 @Service
-public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements MessageService{
+public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements MessageService {
 
     /**
      * 消息列表
@@ -32,11 +32,11 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
     public Page<Message> list(String startDate, String endDate) {
         Page<Message> page = new PageFactory<Message>().defaultPage();
         QueryWrapper<Message> wrapper = new QueryWrapper<>();
-        if (StringUtil.isNotEmpty(startDate)){
-            wrapper.eq(Message.COL_CREATE_TIME, DateUtil.parse(startDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(startDate)) {
+            wrapper.eq(Message.COL_CREATE_TIME, DateUtil.parse(startDate, "yyyyMMddHHmmss"));
         }
-        if (StringUtil.isNotEmpty(endDate)){
-            wrapper.eq(Message.COL_CREATE_TIME, DateUtil.parse(endDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(endDate)) {
+            wrapper.eq(Message.COL_CREATE_TIME, DateUtil.parse(endDate, "yyyyMMddHHmmss"));
         }
         IPage<Message> messageIPage = this.page(page, wrapper);
         return (Page<Message>) messageIPage;

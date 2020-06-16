@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @Date 2020/6/15 14:42
  */
 @Service
-public class CmsContactsServiceImpl extends ServiceImpl<CmsContactsMapper, CmsContacts> implements CmsContactsService{
+public class CmsContactsServiceImpl extends ServiceImpl<CmsContactsMapper, CmsContacts> implements CmsContactsService {
 
     /**
      * 邀约信息列表
@@ -34,17 +34,17 @@ public class CmsContactsServiceImpl extends ServiceImpl<CmsContactsMapper, CmsCo
     public Page<CmsContacts> list(String userName, String mobile, String startDate, String endDate) {
         Page<CmsContacts> page = new PageFactory<CmsContacts>().defaultPage();
         QueryWrapper<CmsContacts> wrapper = new QueryWrapper<>();
-        if (StringUtil.isNotEmpty(startDate)){
-            wrapper.ge(CmsContacts.COL_CREATE_TIME, DateUtil.parse(startDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(startDate)) {
+            wrapper.ge(CmsContacts.COL_CREATE_TIME, DateUtil.parse(startDate, "yyyyMMddHHmmss"));
         }
-        if (StringUtil.isNotEmpty(endDate)){
-            wrapper.le(CmsContacts.COL_CREATE_TIME, DateUtil.parse(endDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(endDate)) {
+            wrapper.le(CmsContacts.COL_CREATE_TIME, DateUtil.parse(endDate, "yyyyMMddHHmmss"));
         }
-        if (StringUtil.isNotEmpty(userName)){
-            wrapper.eq(CmsContacts.COL_USER_NAME,userName);
+        if (StringUtil.isNotEmpty(userName)) {
+            wrapper.eq(CmsContacts.COL_USER_NAME, userName);
         }
-        if (StringUtil.isNotEmpty(mobile)){
-            wrapper.eq(CmsContacts.COL_MOBILE,mobile);
+        if (StringUtil.isNotEmpty(mobile)) {
+            wrapper.eq(CmsContacts.COL_MOBILE, mobile);
         }
         IPage<CmsContacts> contactsIPage = this.page(page, wrapper);
         return (Page<CmsContacts>) contactsIPage;

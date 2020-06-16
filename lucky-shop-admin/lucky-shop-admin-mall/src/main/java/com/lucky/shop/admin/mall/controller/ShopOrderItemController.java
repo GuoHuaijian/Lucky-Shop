@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/6/14 0:14
  */
 @RestController
-@RequestMapping("/shop/order/item")
+@RequestMapping("mall/shop/order/item")
 public class ShopOrderItemController {
 
     @Autowired

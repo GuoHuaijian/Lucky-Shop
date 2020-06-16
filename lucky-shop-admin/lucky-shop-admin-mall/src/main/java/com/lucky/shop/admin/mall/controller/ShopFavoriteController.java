@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/6/13 22:58
  */
 @RestController
-@RequestMapping("/shop/favorite")
+@RequestMapping("mall/shop/favorite")
 public class ShopFavoriteController {
 
     @Autowired

@@ -19,7 +19,7 @@ import java.util.List;
  * @Date 2020/6/13 21:27
  */
 @RestController
-@RequestMapping("/shop/category")
+@RequestMapping("mall/shop/category")
 public class ShopCategoryController {
 
     @Autowired

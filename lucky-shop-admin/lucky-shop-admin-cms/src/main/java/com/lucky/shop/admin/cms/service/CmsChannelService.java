@@ -11,14 +11,14 @@ import java.util.List;
  * @Author Guo Huaijian
  * @Date 2020/6/15 14:31
  */
-public interface CmsChannelService extends IService<CmsChannel>{
+public interface CmsChannelService extends IService<CmsChannel> {
 
     /**
      * 编辑栏目
      *
      * @param channel
      */
-     void saveChannel(CmsChannel channel);
+    void saveChannel(CmsChannel channel);
 
     /**
      * 删除栏目

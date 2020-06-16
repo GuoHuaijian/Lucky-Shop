@@ -20,7 +20,7 @@ import java.util.Map;
  * @Date 2020/6/5 18:58
  */
 @RestController
-@RequestMapping("/file")
+@RequestMapping("system/file")
 public class FileServiceController {
 
     @Autowired
@@ -51,11 +51,11 @@ public class FileServiceController {
      * @return
      */
     @GetMapping("list")
-    public Page<SysFileInfo> list(@RequestParam(required = false) String originalFileName){
+    public Page<SysFileInfo> list(@RequestParam(required = false) String originalFileName) {
         Page<SysFileInfo> page = new PageFactory<SysFileInfo>().defaultPage();
         QueryWrapper<SysFileInfo> wrapper = new QueryWrapper<>();
         if (StringUtil.isNotEmpty(originalFileName)) {
-            wrapper.like(SysFileInfo.COL_ORIGINAL_FILE_NAME,originalFileName);
+            wrapper.like(SysFileInfo.COL_ORIGINAL_FILE_NAME, originalFileName);
         }
         IPage<SysFileInfo> fileInfoIPage = fileInfoService.page(page, wrapper);
         return (Page<SysFileInfo>) fileInfoIPage;

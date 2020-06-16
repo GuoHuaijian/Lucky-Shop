@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @Author Guo Huaijian
  * @Date 2020/6/5 19:40
  */
-@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_SYSTEM, path = "cfg", configuration =
+@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_SYSTEM, path = "system/cfg", configuration =
         FeignRequestConfiguration.class, fallbackFactory = FileServiceFactory.class)
 public interface RemoteSysCfgService {
 

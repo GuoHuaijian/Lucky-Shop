@@ -18,7 +18,7 @@ import java.util.List;
  * @Date 2020/6/14 18:28
  */
 @RestController
-@RequestMapping("/dict")
+@RequestMapping("system/dict")
 public class SysDictController {
 
     @Autowired
@@ -64,7 +64,7 @@ public class SysDictController {
      * @param dictValues
      * @return
      */
-    @RequestMapping(method = RequestMethod.PUT)
+    @PutMapping()
     @BussinessLog(value = "修改字典", key = "dictName")
 //    @RequiresPermissions(value = {Permission.DICT_EDIT})
     public ResponseResult update(Long id, String dictName, String dictValues) {

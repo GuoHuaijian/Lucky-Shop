@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @Author Guo Huaijian
  * @Date 2020/6/13 18:20
  */
-@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_SYSTEM, path = "user", configuration =
+@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_SYSTEM, path = "system/user", configuration =
         FeignRequestConfiguration.class, fallbackFactory = FileServiceFactory.class)
 public interface RemoteSysUserService {
 

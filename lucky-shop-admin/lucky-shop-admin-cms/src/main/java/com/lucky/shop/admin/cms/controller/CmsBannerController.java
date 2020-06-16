@@ -19,7 +19,7 @@ import java.util.List;
  * @Date 2020/6/15 13:40
  */
 @RestController
-@RequestMapping("/banner")
+@RequestMapping("cms/banner")
 public class CmsBannerController {
 
     @Autowired
@@ -35,8 +35,8 @@ public class CmsBannerController {
     @BussinessLog(value = "编辑banner", key = "title")
 //    @RequiresPermissions(value = {Permission.BANNER_EDIT})
     public ResponseResult save(@ModelAttribute @Valid CmsBanner banner) {
-        if(StringUtil.isNotEmpty(banner.getParam())){
-            if(!JSON.isValid(banner.getParam())){
+        if (StringUtil.isNotEmpty(banner.getParam())) {
+            if (!JSON.isValid(banner.getParam())) {
                 return ResponseResult.error("参数必须为json格式");
             }
         }

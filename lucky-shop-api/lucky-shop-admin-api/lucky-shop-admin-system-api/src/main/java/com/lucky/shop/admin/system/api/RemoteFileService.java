@@ -16,7 +16,7 @@ import java.util.Map;
  * @Author Guo Huaijian
  * @Date 2020/6/5 18:52
  */
-@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_SYSTEM, path = "file", configuration =
+@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_SYSTEM, path = "system/file", configuration =
         FeignRequestConfiguration.class, fallbackFactory = FileServiceFactory.class)
 public interface RemoteFileService {
 

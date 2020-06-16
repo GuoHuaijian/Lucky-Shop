@@ -10,7 +10,7 @@ import com.lucky.shop.admin.seo.domain.PromotionTopic;
  * @Author Guo Huaijian
  * @Date 2020/6/15 19:39
  */
-public interface PromotionTopicService extends IService<PromotionTopic>{
+public interface PromotionTopicService extends IService<PromotionTopic> {
 
     /**
      * 专题列表
@@ -27,14 +27,14 @@ public interface PromotionTopicService extends IService<PromotionTopic>{
      *
      * @param topic
      */
-     void saveTopic(PromotionTopic topic);
+    void saveTopic(PromotionTopic topic);
 
     /**
      * 删除专题
      *
      * @param id
      */
-     void remove(Long id);
+    void remove(Long id);
 
     /**
      * 禁用专题
@@ -42,6 +42,6 @@ public interface PromotionTopicService extends IService<PromotionTopic>{
      * @param id
      * @param disabled
      */
-     void changeIsOnSale( Long id,  Boolean disabled);
+    void changeIsOnSale(Long id, Boolean disabled);
 
 }

@@ -19,7 +19,7 @@ import java.util.List;
  * @Date 2020/6/15 0:14
  */
 @RestController
-@RequestMapping("/task")
+@RequestMapping("system/task")
 public class SysTaskController {
 
     @Autowired

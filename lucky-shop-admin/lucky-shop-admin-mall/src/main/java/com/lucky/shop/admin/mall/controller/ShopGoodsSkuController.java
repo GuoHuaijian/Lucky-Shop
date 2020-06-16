@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/6/14 0:05
  */
 @RestController
-@RequestMapping("/shop/goods/sku")
+@RequestMapping("mall/shop/goods/sku")
 public class ShopGoodsSkuController {
 
     @Autowired

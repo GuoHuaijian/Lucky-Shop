@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2020/6/14 22:06
  */
 @RestController
-@RequestMapping("/notice")
+@RequestMapping("system/notice")
 public class SysNoticeController {
 
     @Autowired

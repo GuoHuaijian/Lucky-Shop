@@ -21,7 +21,7 @@ import java.util.Map;
  * @Since 2020/6/2 20:39
  */
 @RestController
-@RequestMapping("/shop/user")
+@RequestMapping("mall/shop/user")
 public class ShopUserController {
 
     @Autowired

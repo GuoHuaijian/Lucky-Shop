@@ -73,5 +73,5 @@ mybatis-plus:
 # 日志配置
 logging:
   level:
-    com.lucky.shop.auth: info
-    org.springframework: info
+    com.lucky.shop.admin.message: debug
+    org.springframework: debug

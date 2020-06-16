@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @Date 2020/6/15 19:25
  */
 @Service
-public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMapper, MessageTemplate> implements MessageTemplateService{
+public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMapper, MessageTemplate> implements MessageTemplateService {
 
     /**
      * 消息模板列表
@@ -37,9 +37,9 @@ public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMappe
      */
     @Override
     public void saveTemplate(MessageTemplate messageTemplate) {
-        if(messageTemplate.getId()==null){
+        if (messageTemplate.getId() == null) {
             this.save(messageTemplate);
-        }else {
+        } else {
             this.updateById(messageTemplate);
         }
     }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/6/15 14:50
  */
 @RestController
-@RequestMapping("/contacts")
+@RequestMapping("cms/contacts")
 public class CmsContactsController {
 
     @Autowired

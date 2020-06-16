@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @Date 2020/6/15 19:39
  */
 @Service
-public class PromotionTopicServiceImpl extends ServiceImpl<PromotionTopicMapper, PromotionTopic> implements PromotionTopicService{
+public class PromotionTopicServiceImpl extends ServiceImpl<PromotionTopicMapper, PromotionTopic> implements PromotionTopicService {
 
     /**
      * 专题列表
@@ -33,14 +33,14 @@ public class PromotionTopicServiceImpl extends ServiceImpl<PromotionTopicMapper,
     public Page<PromotionTopic> list(Boolean disabled, String startDate, String endDate) {
         Page<PromotionTopic> page = new PageFactory<PromotionTopic>().defaultPage();
         QueryWrapper<PromotionTopic> wrapper = new QueryWrapper<>();
-        if (StringUtil.isNotNullOrEmpty(disabled)){
-            wrapper.eq(PromotionTopic.COL_DISABLED,disabled);
+        if (StringUtil.isNotNullOrEmpty(disabled)) {
+            wrapper.eq(PromotionTopic.COL_DISABLED, disabled);
         }
-        if (StringUtil.isNotEmpty(startDate)){
-            wrapper.ge(PromotionTopic.COL_CREATE_TIME,DateUtil.parse(startDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(startDate)) {
+            wrapper.ge(PromotionTopic.COL_CREATE_TIME, DateUtil.parse(startDate, "yyyyMMddHHmmss"));
         }
-        if (StringUtil.isNotEmpty(startDate)){
-            wrapper.le(PromotionTopic.COL_CREATE_TIME,DateUtil.parse(endDate,"yyyyMMddHHmmss"));
+        if (StringUtil.isNotEmpty(startDate)) {
+            wrapper.le(PromotionTopic.COL_CREATE_TIME, DateUtil.parse(endDate, "yyyyMMddHHmmss"));
         }
         IPage<PromotionTopic> topicIPage = this.page(page, wrapper);
         return (Page<PromotionTopic>) topicIPage;
@@ -53,10 +53,10 @@ public class PromotionTopicServiceImpl extends ServiceImpl<PromotionTopicMapper,
      */
     @Override
     public void saveTopic(PromotionTopic topic) {
-        if(topic.getId()==null){
+        if (topic.getId() == null) {
             topic.setPv(0L);
             this.save(topic);
-        }else {
+        } else {
             this.updateById(topic);
         }
     }

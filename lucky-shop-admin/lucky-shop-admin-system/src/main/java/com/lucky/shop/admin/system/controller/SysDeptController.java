@@ -21,7 +21,7 @@ import java.util.List;
  * @Date 2020/6/14 17:50
  */
 @RestController
-@RequestMapping("/dept")
+@RequestMapping("system/dept")
 public class SysDeptController {
 
     private Logger logger = LoggerFactory.getLogger(SysDeptController.class);

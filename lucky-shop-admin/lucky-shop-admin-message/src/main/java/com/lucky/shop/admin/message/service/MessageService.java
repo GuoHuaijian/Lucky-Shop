@@ -10,7 +10,7 @@ import com.lucky.shop.admin.message.domain.Message;
  * @Author Guo Huaijian
  * @Date 2020/6/15 18:58
  */
-public interface MessageService extends IService<Message>{
+public interface MessageService extends IService<Message> {
 
 
     /**
@@ -25,6 +25,6 @@ public interface MessageService extends IService<Message>{
     /**
      * 清空所有历史消息
      */
-     void clear();
+    void clear();
 
 }

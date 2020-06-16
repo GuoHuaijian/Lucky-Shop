@@ -13,6 +13,20 @@ public class LuckyShopAdminMessageApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(LuckyShopAdminMessageApplication.class, args);
+        System.out.println("       \n" +
+                "            ,--.'|_                        ,--.'|_   \n" +
+                "            |  | :,'              __  ,-.  |  | :,'  \n" +
+                "  .--.--.   :  : ' :            ,' ,'/ /|  :  : ' :  \n" +
+                " /  /    '.;__,'  /    ,--.--.  '  | |' |.;__,'  /   \n" +
+                "|  :  /`./|  |   |    /       \\ |  |   ,'|  |   |    \n" +
+                "|  :  ;_  :__,'| :   .--.  .-. |'  :  /  :__,'| :    \n" +
+                " \\  \\    `. '  : |__  \\__\\/: . .|  | '     '  : |__  \n" +
+                "  `----.   \\|  | '.'| ,\" .--.; |;  : |     |  | '.'| \n" +
+                " /  /`--'  /;  :    ;/  /  ,.  ||  , ;     ;  :    ; \n" +
+                "'--'.     / |  ,   /;  :   .'   \\---'      |  ,   /  \n" +
+                "  `--'---'   ---`-' |  ,     .-./           ---`-'   \n" +
+                "                     `--`---'                        \n" +
+                "Message服务启动成功(♥◠‿◠)");
     }
 
 }
