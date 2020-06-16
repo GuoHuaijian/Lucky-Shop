@@ -12,7 +12,7 @@
         <result column="code" jdbcType="VARCHAR" property="code"/>
         <result column="code_name" jdbcType="VARCHAR" property="codeName"/>
         <result column="id_goods" jdbcType="BIGINT" property="idGoods"/>
-        <result column="is_deleted" javaType="TINYINT" property="isDeleted"/>
+        <result column="is_deleted" jdbcType="TINYINT" property="isDeleted"/>
         <result column="marketing_price" jdbcType="VARCHAR" property="marketingPrice"/>
         <result column="price" jdbcType="VARCHAR" property="price"/>
         <result column="stock" jdbcType="INTEGER" property="stock"/>

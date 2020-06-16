@@ -6,12 +6,12 @@
         <groupId>com.lucky.shop</groupId>
         <artifactId>lucky-shop-admin-api</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-admin-system-api</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
     <name>lucky-shop-admin-system-api</name>
     <description>商城后台系统模块api</description>
 
@@ -20,7 +20,11 @@
     </properties>
 
     <dependencies>
-
+        <!-- mybatisPlus 核心库 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

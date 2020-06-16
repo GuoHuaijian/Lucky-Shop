@@ -61,7 +61,7 @@ public class LoginController {
     @Autowired
     private TokenStore tokenStore;
 
-    @Autowired
+    @Resource
     private RedisService redisService;
 
     /**

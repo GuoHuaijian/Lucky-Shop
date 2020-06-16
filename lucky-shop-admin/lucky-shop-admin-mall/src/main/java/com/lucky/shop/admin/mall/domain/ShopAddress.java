@@ -67,13 +67,13 @@ public class ShopAddress implements Serializable {
      * 是否默认
      */
     @TableField(value = "is_default")
-    private Byte isDefault;
+    private Boolean isDefault;
 
     /**
      * 是否删除
      */
     @TableField(value = "is_delete")
-    private Byte isDelete;
+    private Boolean isDelete;
 
     /**
      * 收件人

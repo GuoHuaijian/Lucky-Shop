@@ -4,17 +4,20 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
-import lombok.Data;
-
 /**
- * 文章
+ * banner管理
+ *
+ * @Author Guo Huaijian
+ * @Date 2020/6/15 13:38
  */
 @Data
-@TableName(value = "lucky-shop.t_cms_banner")
+@TableName(value = "t_cms_banner")
 public class CmsBanner implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -64,12 +67,14 @@ public class CmsBanner implements Serializable {
     /**
      * 标题
      */
+    @NotBlank(message = "标题不能为空")
     @TableField(value = "title")
     private String title;
 
     /**
      * 类型
      */
+    @NotBlank(message = "类型不能为空")
     @TableField(value = "type")
     private String type;
 

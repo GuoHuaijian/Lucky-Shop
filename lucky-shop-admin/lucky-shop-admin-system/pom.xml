@@ -6,11 +6,11 @@
         <groupId>com.lucky.shop</groupId>
         <artifactId>lucky-shop-admin</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-admin-system</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
     <name>lucky-shop-admin-system</name>
     <description>商城后台系统管理模块</description>
 
@@ -139,6 +139,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.lucky.shop.admin.system.LuckyShopAdminSystemApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -3,7 +3,7 @@
 <mapper namespace="com.lucky.shop.admin.cms.mapper.CmsBannerMapper">
     <resultMap id="BaseResultMap" type="com.lucky.shop.admin.cms.domain.CmsBanner">
         <!--@mbg.generated-->
-        <!--@Table lucky-shop.t_cms_banner-->
+        <!--@Table t_cms_banner-->
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="create_by" jdbcType="BIGINT" property="createBy"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>

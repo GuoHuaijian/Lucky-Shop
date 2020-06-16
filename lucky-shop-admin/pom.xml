@@ -6,12 +6,12 @@
         <groupId>com.lucky.shop</groupId>
         <artifactId>lucky-shop</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-admin</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
     <name>lucky-shop-admin</name>
     <description>后台管理系统</description>
 
@@ -36,6 +36,12 @@
         <dependency>
             <groupId>com.lucky.shop</groupId>
             <artifactId>lucky-shop-common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-common-log</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -75,6 +81,13 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.3.RELEASE</version>
         </dependency>
 
         <!-- Mysql -->

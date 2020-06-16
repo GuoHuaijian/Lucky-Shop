@@ -6,11 +6,11 @@
         <groupId>com.lucky.shop</groupId>
         <artifactId>lucky-shop</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-auth</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
     <name>lucky-shop-auth</name>
     <description>项目权限认证</description>
 
@@ -112,6 +112,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.lucky.shop.auth.LuckyShopAuthApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

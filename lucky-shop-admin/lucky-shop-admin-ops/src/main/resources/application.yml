@@ -1,11 +1,14 @@
 #服务端口
 server:
-  port: 9003
+  port: 9005
 
 spring:
   #服务名
   application:
     name: lucky-shop-admin-ops
+
+  main:
+    allow-bean-definition-overriding: true
 
   #数据库配置
   datasource:
@@ -43,7 +46,7 @@ Oauth2:
       client-id: admin
       client-secret: admin
     resource:
-      token-info-uri: http://localhost:9001/oauth/check_token
+      token-info-uri: http://localhost:9000/oauth/check_token
 
 management:
   endpoints:

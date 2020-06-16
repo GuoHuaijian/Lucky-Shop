@@ -1,5 +1,6 @@
 package com.lucky.shop.admin.system.api.factory;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.system.api.domain.SysFileInfo;
 import com.lucky.shop.admin.system.api.RemoteFileService;
 import feign.hystrix.FallbackFactory;
@@ -23,6 +24,11 @@ public class FileServiceFactory implements FallbackFactory<RemoteFileService> {
         return new RemoteFileService() {
             @Override
             public SysFileInfo createExcel(String template, String fileName, Map<String, Object> data) {
+                return null;
+            }
+
+            @Override
+            public Page<SysFileInfo> list(String originalFileName) {
                 return null;
             }
         };

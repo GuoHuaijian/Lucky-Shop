@@ -6,11 +6,11 @@
         <groupId>com.lucky.shop</groupId>
         <artifactId>lucky-shop</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-api</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
     <name>lucky-shop-api</name>
     <description>项目feign接口</description>
 

@@ -6,12 +6,12 @@
         <groupId>com.lucky.shop</groupId>
         <artifactId>lucky-shop-common</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-common-core</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
     <name>lucky-shop-common-core</name>
     <description>工具模块</description>
 

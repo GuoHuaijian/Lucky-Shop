@@ -1,9 +1,14 @@
 package com.lucky.shop.admin.message;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
 
-@SpringBootApplication
+/**
+ * @author Admin
+ */
+@SpringCloudApplication
+@MapperScan(basePackages = "com.lucky.shop.admin.message.mapper")
 public class LuckyShopAdminMessageApplication {
 
     public static void main(String[] args) {

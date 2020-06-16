@@ -1,13 +1,12 @@
 package com.lucky.shop.admin.system.api;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.system.api.domain.SysFileInfo;
 import com.lucky.shop.admin.system.api.factory.FileServiceFactory;
 import com.lucky.shop.common.core.constant.ServiceNameConstants;
 import com.lucky.shop.config.configuration.FeignRequestConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -32,5 +31,14 @@ public interface RemoteFileService {
     @PostMapping("/createExcel/{template}/{fileName}")
     SysFileInfo createExcel(@PathVariable String template, @PathVariable String fileName,
                             @RequestBody Map<String, Object> data);
+
+    /**
+     * 查询文件信息列表
+     *
+     * @param originalFileName
+     * @return
+     */
+    @GetMapping("list")
+    Page<SysFileInfo> list(@RequestParam(required = false) String originalFileName);
 
 }

@@ -6,12 +6,12 @@
         <groupId>com.lucky.shop</groupId>
         <artifactId>lucky-shop-api</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.lucky.shop</groupId>
     <artifactId>lucky-shop-mobile-api</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
     <name>lucky-shop-mobile-api</name>
     <description>商城移动端api</description>
 

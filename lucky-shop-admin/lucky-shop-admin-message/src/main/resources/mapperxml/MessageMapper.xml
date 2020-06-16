@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.admin.message.mapper.MessageMapper">
+  <resultMap id="BaseResultMap" type="com.lucky.shop.admin.message.domain.Message">
+    <!--@mbg.generated-->
+    <!--@Table t_message-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_by" jdbcType="BIGINT" property="modifyBy" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="tpl_code" jdbcType="VARCHAR" property="tplCode" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, create_by, create_time, modify_by, modify_time, content, receiver, `state`, tpl_code,
+    `type`
+  </sql>
+</mapper>
