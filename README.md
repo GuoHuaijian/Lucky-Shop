@@ -1,2 +1,3 @@
 # Lucky-Shop
-利用Spring Cloud Alibaba技术栈将一个单体商城项目改造成微服务项目，包含PC端，H5,微信小程序，手机APP。
+利用Spring Cloud Alibaba技术栈将一个单体商城项目改造成微服务项目，包含PC端，H5,微信小程序，手机APP。目前已经完成后台部分的改造，将逐步完善各个业务。
+当前主要是利用yapi搭建自己的api服务器做测试，后续将会加上docker和Jenkins实现从开发到测试再到部署运维一条龙的学习过程。master分支当前还未做合并，最新分支为develop分支，该分支将会一直更新将该项目一步步改造。
