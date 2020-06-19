@@ -20,11 +20,13 @@
     </properties>
 
     <dependencies>
+
         <!-- mybatisPlus 核心库 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
+        
     </dependencies>
 
     <build>

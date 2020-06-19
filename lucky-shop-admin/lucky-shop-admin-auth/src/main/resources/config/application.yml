@@ -1,6 +1,6 @@
 #服务端口
 server:
-  port: 9000
+  port: 9888
 
 spring:
   #服务名

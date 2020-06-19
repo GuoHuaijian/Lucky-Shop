@@ -26,9 +26,9 @@ spring:
       routes:
         # 采用自定义路由 ID（有固定用法，不同的 id 有不同的功能，详见：https://cloud.spring.io/spring-cloud-gateway/2.0.x/single/spring-cloud-gateway.html#gateway-route-filters）
         # lucky-shop-admin-auth
-        - id: LUCKY-SHOP-ADMIN-AUTH
+        - id: LUCKY-SHOP-AUTH
           # 采用 LoadBalanceClient 方式请求，以 lb:// 开头，后面的是注册在 Nacos 上的服务名
-          uri: lb://lucky-shop-admin-auth
+          uri: lb://lucky-shop-auth
           # Predicate 翻译过来是“谓词”的意思，必须，主要作用是匹配用户的请求，有很多种用法
           predicates:
             # 路径匹配，以 api 开头，直接配置是不生效的，看 filters 配置

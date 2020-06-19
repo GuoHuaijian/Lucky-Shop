@@ -19,11 +19,14 @@
     </properties>
 
     <dependencies>
+
+        <!-- System-Api -->
         <dependency>
             <groupId>com.lucky.shop</groupId>
             <artifactId>lucky-shop-admin-system-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>

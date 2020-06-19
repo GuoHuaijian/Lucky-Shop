@@ -1,0 +1,13 @@
+# 这里的应用名对应 Nacos Config 中的 Data ID，实际应用名称以配置中心的配置为准
+spring:
+  application:
+    name: nacos-admin-cms-dev
+  cloud:
+    nacos:
+      config:
+        # 指定查找名为 nacos-admin-cms-dev.yaml 的配置文件
+        file-extension: yaml
+        # Nacos Server 的地址
+        server-addr: 127.0.0.1:8848
+
+

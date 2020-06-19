@@ -20,11 +20,13 @@
 
     <dependencies>
 
+        <!-- Common-Redis -->
         <dependency>
             <groupId>com.lucky.shop</groupId>
             <artifactId>lucky-shop-common-redis</artifactId>
             <version>${project.version}</version>
         </dependency>
+        
     </dependencies>
 
     <build>

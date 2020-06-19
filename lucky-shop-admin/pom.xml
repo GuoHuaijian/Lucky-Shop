@@ -29,16 +29,18 @@
     <properties>
         <commons-pool2.version>2.8.0</commons-pool2.version>
         <nutz.version>1.r.67</nutz.version>
+        <Hystrix.version>2.2.3.RELEASE</Hystrix.version>
     </properties>
 
     <dependencies>
-        <!-- Common -->
+        <!-- Common-Core -->
         <dependency>
             <groupId>com.lucky.shop</groupId>
             <artifactId>lucky-shop-common-core</artifactId>
             <version>${project.version}</version>
         </dependency>
 
+        <!-- Common-Log -->
         <dependency>
             <groupId>com.lucky.shop</groupId>
             <artifactId>lucky-shop-common-log</artifactId>
@@ -77,17 +79,23 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!-- Spring Cloud Alibaba Nacos Config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
         <!-- Spring Cloud OpenFeign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
+        <!-- Netflix-Hystrix -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-            <version>2.2.3.RELEASE</version>
+            <version>${Hystrix.version}</version>
         </dependency>
 
         <!-- Mysql -->
