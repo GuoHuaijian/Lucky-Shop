@@ -1,7 +1,7 @@
 package com.lucky.shop.admin.system.api;
 
 import com.lucky.shop.admin.system.api.domain.SysUser;
-import com.lucky.shop.admin.system.api.factory.FileServiceFactory;
+import com.lucky.shop.admin.system.api.factory.SysUserServiceFactory;
 import com.lucky.shop.common.core.constant.ServiceNameConstants;
 import com.lucky.shop.config.configuration.FeignRequestConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @Date 2020/6/13 18:20
  */
 @FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_SYSTEM, path = "system/user", configuration =
-        FeignRequestConfiguration.class, fallbackFactory = FileServiceFactory.class)
+        FeignRequestConfiguration.class, fallbackFactory = SysUserServiceFactory.class)
 public interface RemoteSysUserService {
 
     /**
