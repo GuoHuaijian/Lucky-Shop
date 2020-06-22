@@ -20,6 +20,20 @@
 
     <dependencies>
 
+        <!-- Mall-Api -->
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-admin-mall-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Common-Core -->
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,7 +1,6 @@
 package com.lucky.shop.common.core.utils;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import com.lucky.shop.common.core.tool.Maps;
 import org.springframework.cglib.beans.BeanMap;
 
 import javax.persistence.Column;

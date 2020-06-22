@@ -3,6 +3,7 @@ package com.lucky.shop.admin.message.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.message.domain.Message;
 import com.lucky.shop.admin.message.service.MessageService;
+import com.lucky.shop.admin.message.service.impl.MessageServiceImpl;
 import com.lucky.shop.common.core.dto.ResponseResult;
 import com.lucky.shop.common.log.annotation.BussinessLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,18 @@ public class MessageController {
     public ResponseResult clear() {
         messageService.clear();
         return ResponseResult.success();
+    }
+
+    /**
+     * 发送消息
+     *
+     * @param tplCode
+     * @param receiver
+     * @param args
+     */
+    @PostMapping("sendSms")
+    public void sendSms(String tplCode, String receiver, String... args){
+        MessageServiceImpl messageService = new MessageServiceImpl();
+        messageService.sendSms(tplCode, receiver, args);
     }
 }

@@ -22,4 +22,9 @@ public class ServiceNameConstants {
      * 商城后台运维管理模块
      */
     public static final String LUCKY_SHOP_ADMIN_OPS = "lucky-shop-admin-ops";
+
+    /**
+     * 商城后台消息管理模块
+     */
+    public static final String LUCKY_SHOP_ADMIN_MESSAGE = "lucky-shop-admin-message";
 }

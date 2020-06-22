@@ -41,4 +41,11 @@ public interface ShopOrderService extends IService<ShopOrder> {
      */
     ShopOrder getByOrderSn(String orderSn);
 
+    /**
+     * 获取订单总金额
+     *
+     * @return
+     */
+    Map getRealPrice();
+
 }

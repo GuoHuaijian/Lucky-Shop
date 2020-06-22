@@ -33,4 +33,12 @@ public interface MessageTemplateService extends IService<MessageTemplate> {
      */
     void remove(Long id);
 
+    /**
+     * 根据code查询
+     *
+     * @param code
+     * @return
+     */
+    MessageTemplate findByCode(String code);
+
 }

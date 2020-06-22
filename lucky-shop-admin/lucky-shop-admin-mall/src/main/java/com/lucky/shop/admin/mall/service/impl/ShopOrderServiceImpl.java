@@ -103,4 +103,14 @@ public class ShopOrderServiceImpl extends ServiceImpl<ShopOrderMapper, ShopOrder
         return shopOrder;
     }
 
+    /**
+     * 获取订单总金额
+     *
+     * @return
+     */
+    @Override
+    public Map getRealPrice() {
+        return orderMapper.getRealPrice();
+    }
+
 }

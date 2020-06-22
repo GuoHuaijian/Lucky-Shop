@@ -16,9 +16,26 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <javax.mail.version>1.6.2</javax.mail.version>
+        <qcloudsms.version>1.0.6</qcloudsms.version>
     </properties>
 
     <dependencies>
+
+        <!-- javax.mail-api -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>${javax.mail.version}</version>
+        </dependency>
+
+        <!-- qcloudsms -->
+        <dependency>
+            <groupId>com.github.qcloudsms</groupId>
+            <artifactId>qcloudsms</artifactId>
+            <version>${qcloudsms.version}</version>
+        </dependency>
+
 
     </dependencies>
 

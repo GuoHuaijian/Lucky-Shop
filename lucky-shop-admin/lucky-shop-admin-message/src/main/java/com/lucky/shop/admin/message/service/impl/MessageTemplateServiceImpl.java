@@ -1,5 +1,6 @@
 package com.lucky.shop.admin.message.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -52,5 +53,18 @@ public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMappe
     @Override
     public void remove(Long id) {
         this.removeById(id);
+    }
+
+    /**
+     * 根据code查询
+     *
+     * @param code
+     * @return
+     */
+    @Override
+    public MessageTemplate findByCode(String code) {
+        QueryWrapper<MessageTemplate> wrapper = new QueryWrapper<>();
+        wrapper.eq(MessageTemplate.COL_CODE,code);
+        return this.getOne(wrapper);
     }
 }
