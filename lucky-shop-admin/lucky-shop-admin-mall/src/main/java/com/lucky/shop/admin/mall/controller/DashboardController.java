@@ -27,7 +27,7 @@ public class DashboardController {
      * @return
      */
     @GetMapping()
-    public Map get(){
+    public Map get() {
         Map data = dashboardService.getDashboardData();
         return data;
     }

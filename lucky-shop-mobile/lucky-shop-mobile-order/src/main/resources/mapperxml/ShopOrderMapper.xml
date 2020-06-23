@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.mobile.order.mapper.ShopOrderMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.mobile.order.domain.ShopOrder">
+        <!--@mbg.generated-->
+        <!--@Table t_shop_order-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="admin_message" jdbcType="VARCHAR" property="adminMessage"/>
+        <result column="confirm_receiving_time" jdbcType="TIMESTAMP" property="confirmReceivingTime"/>
+        <result column="coupon_price" jdbcType="VARCHAR" property="couponPrice"/>
+        <result column="id_address" jdbcType="BIGINT" property="idAddress"/>
+        <result column="id_express" jdbcType="BIGINT" property="idExpress"/>
+        <result column="id_user" jdbcType="BIGINT" property="idUser"/>
+        <result column="message" jdbcType="VARCHAR" property="message"/>
+        <result column="order_sn" jdbcType="VARCHAR" property="orderSn"/>
+        <result column="pay_id" jdbcType="VARCHAR" property="payId"/>
+        <result column="pay_status" jdbcType="INTEGER" property="payStatus"/>
+        <result column="pay_time" jdbcType="VARCHAR" property="payTime"/>
+        <result column="pay_type" jdbcType="VARCHAR" property="payType"/>
+        <result column="real_price" jdbcType="VARCHAR" property="realPrice"/>
+        <result column="shipping_amount" jdbcType="VARCHAR" property="shippingAmount"/>
+        <result column="shipping_sn" jdbcType="VARCHAR" property="shippingSn"/>
+        <result column="shipping_time" jdbcType="TIMESTAMP" property="shippingTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="total_price" jdbcType="VARCHAR" property="totalPrice"/>
+        <result column="trade_amount" jdbcType="VARCHAR" property="tradeAmount"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_time, modify_time, admin_message, confirm_receiving_time, coupon_price,
+        id_address, id_express, id_user, message, order_sn, pay_id, pay_status, pay_time,
+        pay_type, real_price, shipping_amount, shipping_sn, shipping_time, `status`, total_price,
+        trade_amount
+    </sql>
+</mapper>

@@ -72,12 +72,10 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
     }
 
 
-
-
     public void sendTplEmail(String tplCode, String from, String to, String cc, String title, Map<String, Object> dataMap) {
         MessageTemplate messageTemplate = messageTemplateService.findByCode(tplCode);
         String content = getContent(messageTemplate.getContent(), dataMap);
-        sendEmailMessage(tplCode,from,to,cc,title,content,messageTemplate,null,null);
+        sendEmailMessage(tplCode, from, to, cc, title, content, messageTemplate, null, null);
     }
 
     public void sendTplEmail(String tplCode, String from, String to, String cc, String title,
@@ -85,40 +83,42 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
                              Map<String, Object> dataMap) {
         MessageTemplate messageTemplate = messageTemplateService.findByCode(tplCode);
         String content = getContent(messageTemplate.getContent(), dataMap);
-        sendEmailMessage(tplCode,from,to,cc,title,content,messageTemplate,attachmentFilename,inputStreamSource);
+        sendEmailMessage(tplCode, from, to, cc, title, content, messageTemplate, attachmentFilename, inputStreamSource);
     }
 
     public void sendSimpleEmail(String tplCode, String from, String to, String cc, String title, String... args) {
         MessageTemplate messageTemplate = messageTemplateService.findByCode(tplCode);
         String content = getContent(messageTemplate.getContent(), args);
-        sendEmailMessage(tplCode,from,to,cc,title,content,messageTemplate,null,null);
+        sendEmailMessage(tplCode, from, to, cc, title, content, messageTemplate, null, null);
     }
+
     public void sendSms(String tplCode, String receiver, String... args) {
         MessageTemplate messageTemplate = messageTemplateService.findByCode(tplCode);
         String content = getContent(messageTemplate.getContent(), args);
         boolean isSuccess = false;
         try {
             isSuccess = this.sendSmsMessage(receiver, content, messageTemplate, args);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
-            throw  new RuntimeException();
+            throw new RuntimeException();
 
         }
-        saveMessage(0,tplCode,receiver,content,isSuccess);
+        saveMessage(0, tplCode, receiver, content, isSuccess);
     }
+
     private void sendEmailMessage(String tplCode, String from, String to, String cc, String title,
-                                  String content,MessageTemplate messageTemplate,
-                                  String attachmentFilename, InputStreamSource inputStreamSource){
+                                  String content, MessageTemplate messageTemplate,
+                                  String attachmentFilename, InputStreamSource inputStreamSource) {
         try {
             EmailSender emailSender = getEmailSender(messageTemplate);
             boolean isSuccess = false;
-            if(inputStreamSource!=null){
-                isSuccess = emailSender.sendEmail(from, to, cc, title, content,attachmentFilename,inputStreamSource);
-            }else {
+            if (inputStreamSource != null) {
+                isSuccess = emailSender.sendEmail(from, to, cc, title, content, attachmentFilename, inputStreamSource);
+            } else {
                 isSuccess = emailSender.sendEmail(from, to, cc, title, content);
             }
             saveMessage(1, tplCode, to, content, isSuccess);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
             saveMessage(1, tplCode, to, content, false);
         }
@@ -152,10 +152,10 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
     }
 
 
-    private boolean sendSmsMessage( String receiver, String content,  MessageTemplate messageTemplate,String... args) throws Exception {
+    private boolean sendSmsMessage(String receiver, String content, MessageTemplate messageTemplate, String... args) throws Exception {
         String tplCode = getTpl(messageTemplate);
         SmsSender smsSender = getSmsSender(messageTemplate);
-        log.info("receiver:{},content:{}\r\n,args:{}",receiver,content, Json.toJson(args));
+        log.info("receiver:{},content:{}\r\n,args:{}", receiver, content, Json.toJson(args));
         boolean success = false;
         String[] receivers = receiver.split(",|;", -1);
         for (String oneReceiver : receivers) {
@@ -199,6 +199,7 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
             throw new Exception("未配置运营商模版id");
         }
     }
+
     private String getTpl(MessageTemplate messageTemplate) {
         MessageSender messageSender = messageSenderService.getById(messageTemplate.getIdMessageSender());
 

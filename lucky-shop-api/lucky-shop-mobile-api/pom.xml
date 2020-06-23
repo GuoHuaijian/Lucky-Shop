@@ -15,12 +15,16 @@
     <name>lucky-shop-mobile-api</name>
     <description>商城移动端api</description>
 
+    <modules>
+        <module>lucky-shop-mobile-ucenter-api</module>
+    </modules>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
-        
+
     </dependencies>
 
     <build>

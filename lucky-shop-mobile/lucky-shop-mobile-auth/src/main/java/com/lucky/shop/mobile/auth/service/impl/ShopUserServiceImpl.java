@@ -26,7 +26,7 @@ import java.util.Date;
  */
 @Service
 @Slf4j
-public class ShopUserServiceImpl extends ServiceImpl<ShopUserMapper, ShopUser> implements ShopUserService{
+public class ShopUserServiceImpl extends ServiceImpl<ShopUserMapper, ShopUser> implements ShopUserService {
 
     @Resource
     private RedisService redisService;
@@ -41,25 +41,25 @@ public class ShopUserServiceImpl extends ServiceImpl<ShopUserMapper, ShopUser> i
      * @return
      */
     @Override
-    public boolean  sendSmsCode(String mobile) {
+    public boolean sendSmsCode(String mobile) {
         String smsCode = RandomUtil.getRandomNumber(4);
-        String key =  mobile+"_smsCode";
-        String timesKey = key+"_times";
+        String key = mobile + "_smsCode";
+        String timesKey = key + "_times";
         String oldSmsCode = redisService.getCacheObject(key);
-        if(StringUtil.isNotEmpty(oldSmsCode)){
-            log.info("{}:一分钟内已经发送过短信验证码，不再重复发送",oldSmsCode);
-            throw  new RuntimeException();
+        if (StringUtil.isNotEmpty(oldSmsCode)) {
+            log.info("{}:一分钟内已经发送过短信验证码，不再重复发送", oldSmsCode);
+            throw new RuntimeException();
         }
-        Integer sendTimes =  redisService.getCacheObject(timesKey);
-        sendTimes = sendTimes==null?0:sendTimes;
-        if(sendTimes!=null&&sendTimes>3){
-            log.info("{}:当天天发送短信验证码次数超限",mobile);
-            throw  new RuntimeException();
+        Integer sendTimes = redisService.getCacheObject(timesKey);
+        sendTimes = sendTimes == null ? 0 : sendTimes;
+        if (sendTimes != null && sendTimes > 3) {
+            log.info("{}:当天天发送短信验证码次数超限", mobile);
+            throw new RuntimeException();
         }
-        redisService.setCacheObject(key,smsCode);
-        redisService.setCacheObject(timesKey,sendTimes++);
+        redisService.setCacheObject(key, smsCode);
+        redisService.setCacheObject(timesKey, sendTimes++);
 
-        messageService.sendSms(MessageTemplateEnum.REGISTER_CODE.getCode(),mobile,smsCode);
+        messageService.sendSms(MessageTemplateEnum.REGISTER_CODE.getCode(), mobile, smsCode);
         return true;
     }
 
@@ -73,9 +73,9 @@ public class ShopUserServiceImpl extends ServiceImpl<ShopUserMapper, ShopUser> i
     @Override
     public Boolean validateSmsCode(String mobile, String smsCode) {
         //todo 测试验证逻辑，暂不实现
-        String key = mobile+"_smsCode";
+        String key = mobile + "_smsCode";
         String smsCode2 = redisService.getCacheObject(key);
-        return StringUtil.equals(smsCode,smsCode2);
+        return StringUtil.equals(smsCode, smsCode2);
     }
 
     /**
@@ -87,7 +87,7 @@ public class ShopUserServiceImpl extends ServiceImpl<ShopUserMapper, ShopUser> i
     @Override
     public ShopUser findByMobile(String mobile) {
         QueryWrapper<ShopUser> wrapper = new QueryWrapper<>();
-        wrapper.eq(ShopUser.COL_MOBILE,mobile);
+        wrapper.eq(ShopUser.COL_MOBILE, mobile);
         return this.getOne(wrapper);
     }
 

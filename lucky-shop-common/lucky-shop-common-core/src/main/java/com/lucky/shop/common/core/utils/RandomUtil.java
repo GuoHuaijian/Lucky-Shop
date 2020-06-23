@@ -9,12 +9,14 @@ import java.util.Random;
  * @Date 2020/6/22 16:44
  */
 public class RandomUtil {
-    static  String number = "0123456789";
+    static String number = "0123456789";
     static String str = "abcdefghijklmnopqrstuvwxyz0123456789";
+
     public static String getRandomNumber(int length) {
 
         return getRandom(length, number);
     }
+
     public static String getRandomString(int length) {
         return getRandom(length, str);
     }

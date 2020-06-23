@@ -1,6 +1,5 @@
 package com.lucky.shop.admin.system.api;
 
-import com.lucky.shop.admin.system.api.factory.FileServiceFactory;
 import com.lucky.shop.admin.system.api.factory.SysCfgServiceFactory;
 import com.lucky.shop.common.core.constant.ServiceNameConstants;
 import com.lucky.shop.config.configuration.FeignRequestConfiguration;

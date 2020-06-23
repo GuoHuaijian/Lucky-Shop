@@ -23,8 +23,8 @@ public class DefaultEmailSender implements EmailSender {
     private JavaMailSender javaMailSender;
 
     @Override
-    public boolean sendEmail(String from, String to, String cc, String title, String content){
-        return sendEmail(from,to,cc,title,content,null,null);
+    public boolean sendEmail(String from, String to, String cc, String title, String content) {
+        return sendEmail(from, to, cc, title, content, null, null);
     }
 
     @Override
@@ -35,12 +35,12 @@ public class DefaultEmailSender implements EmailSender {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(from);
             helper.setTo(to);
-            if(StringUtil.isNotEmpty(cc)) {
+            if (StringUtil.isNotEmpty(cc)) {
                 helper.setCc(cc);
             }
             helper.setSubject(title);
             helper.setText(content, true);
-            if(inputStreamSource!=null) {
+            if (inputStreamSource != null) {
                 helper.addAttachment(attachmentFilename, inputStreamSource);
             }
             javaMailSender.send(message);

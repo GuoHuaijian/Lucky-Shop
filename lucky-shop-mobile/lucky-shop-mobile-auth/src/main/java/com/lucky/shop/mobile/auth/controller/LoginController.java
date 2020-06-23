@@ -61,7 +61,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "sendSmsCode")
-    public ResponseResult sendSmsCode(@RequestParam String mobile){
+    public ResponseResult sendSmsCode(@RequestParam String mobile) {
         shopUserService.sendSmsCode(mobile);
         return ResponseResult.success();
     }
@@ -74,7 +74,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "loginOrReg")
-    public ResponseResult loginOrReg(@RequestParam String mobile,@RequestParam String smsCode){
+    public ResponseResult loginOrReg(@RequestParam String mobile, @RequestParam String smsCode) {
         try {
             logger.info("用户登录:" + mobile + ",短信验证码:" + smsCode);
             //1,
@@ -116,11 +116,11 @@ public class LoginController {
                 }
                 return ResponseResult.error("短信验证码错误");
             }
-        } catch(Exception e){
-                logger.error(e.getMessage(), e);
-            }
-            return ResponseResult.error("登录时失败");
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
         }
+        return ResponseResult.error("登录时失败");
+    }
 
     /**
      * 使用手机号和密码登录
@@ -130,7 +130,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "loginByPass")
-    public ResponseResult loginByPass(@RequestParam String mobile,@RequestParam String password){
+    public ResponseResult loginByPass(@RequestParam String mobile, @RequestParam String password) {
         try {
             logger.info("用户登录:" + mobile + ",密码:" + password);
             //1,
@@ -161,12 +161,12 @@ public class LoginController {
                 user.setLastLoginTime(new Date());
                 shopUserService.updateById(user);
                 UserInfo userInfo = new UserInfo();
-                BeanUtils.copyProperties(user,userInfo);
-                logger.info("token:{}",token);
+                BeanUtils.copyProperties(user, userInfo);
+                logger.info("token:{}", token);
                 result.put("token", token);
-                result.put("user",userInfo);
+                result.put("user", userInfo);
                 return ResponseResult.success(result);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } catch (Exception e) {
@@ -181,7 +181,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "/logout")
-    public ResponseResult logout(HttpServletRequest request){
+    public ResponseResult logout(HttpServletRequest request) {
         // 获取 token
         String token = request.getHeader("Authorization");
         // 删除 token 以注销

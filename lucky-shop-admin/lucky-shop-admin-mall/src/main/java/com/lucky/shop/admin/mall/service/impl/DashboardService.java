@@ -32,16 +32,16 @@ public class DashboardService {
      *
      * @return
      */
-    public Map getDashboardData(){
+    public Map getDashboardData() {
         long orderCount = orderService.count();
         long userCount = shopUserService.count();
         long cartCount = cartService.count();
         Map orderSumPrice = orderService.getRealPrice();
         Map result = Maps.newHashMap(
-                "orderCount",orderCount,
-                "userCount",userCount,
-                "cartCount",cartCount,
-                "orderSumPrice", orderSumPrice!=null?(Double.valueOf(orderSumPrice.get("realPrice").toString())/100):"0"
+                "orderCount", orderCount,
+                "userCount", userCount,
+                "cartCount", cartCount,
+                "orderSumPrice", orderSumPrice != null ? (Double.valueOf(orderSumPrice.get("realPrice").toString()) / 100) : "0"
         );
         return result;
     }

@@ -2,11 +2,13 @@ package com.lucky.shop.admin.dashboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author Admin
  */
 @SpringCloudApplication
+@EnableFeignClients(basePackages = "com.lucky.shop.admin.mall.api")
 public class LuckyShopAdminDashboardApplication {
 
     public static void main(String[] args) {

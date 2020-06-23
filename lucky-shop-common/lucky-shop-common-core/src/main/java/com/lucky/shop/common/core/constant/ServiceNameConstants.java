@@ -27,4 +27,9 @@ public class ServiceNameConstants {
      * 商城后台消息管理模块
      */
     public static final String LUCKY_SHOP_ADMIN_MESSAGE = "lucky-shop-admin-message";
+
+    /**
+     * 用户中心模块
+     */
+    public static final String LUCKY_SHOP_MOBILE_UCENTER = "lucky-shop-mobile-ucenter";
 }

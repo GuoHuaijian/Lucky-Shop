@@ -58,7 +58,7 @@ public class MessageController {
      * @param args
      */
     @PostMapping("sendSms")
-    public void sendSms(String tplCode, String receiver, String... args){
+    public void sendSms(String tplCode, String receiver, String... args) {
         MessageServiceImpl messageService = new MessageServiceImpl();
         messageService.sendSms(tplCode, receiver, args);
     }

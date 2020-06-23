@@ -16,9 +16,25 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <weixin-pay.version>3.8.0</weixin-pay.version>
     </properties>
 
     <dependencies>
+
+        <!-- ucenter-api -->
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-mobile-ucenter-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- weixin-java-pay -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-pay</artifactId>
+            <version>${weixin-pay.version}</version>
+        </dependency>
+
 
     </dependencies>
 

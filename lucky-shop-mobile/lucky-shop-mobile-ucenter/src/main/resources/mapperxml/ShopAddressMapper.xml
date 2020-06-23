@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.mobile.ucenter.mapper.ShopAddressMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.mobile.ucenter.domain.ShopAddress">
+        <!--@mbg.generated-->
+        <!--@Table t_shop_address-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="address_detail" jdbcType="VARCHAR" property="addressDetail"/>
+        <result column="area_code" jdbcType="VARCHAR" property="areaCode"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="district" jdbcType="VARCHAR" property="district"/>
+        <result column="id_user" jdbcType="BIGINT" property="idUser"/>
+        <result column="is_default" jdbcType="TINYINT" property="isDefault"/>
+        <result column="is_delete" jdbcType="TINYINT" property="isDelete"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="post_code" jdbcType="VARCHAR" property="postCode"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="tel" jdbcType="VARCHAR" property="tel"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_time, modify_time, address_detail, area_code, city, district, id_user,
+        is_default, is_delete, `name`, post_code, province, tel
+    </sql>
+</mapper>

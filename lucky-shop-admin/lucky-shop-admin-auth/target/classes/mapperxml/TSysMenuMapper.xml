@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.auth.mapper.TSysMenuMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.admin.auth.domain.SysMenu">
+        <!--@mbg.generated-->
+        <!--@Table t_sys_menu-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_by" jdbcType="BIGINT" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_by" jdbcType="BIGINT" property="modifyBy"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="component" jdbcType="VARCHAR" property="component"/>
+        <result column="hidden" jdbcType="TINYINT" property="hidden"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="ismenu" jdbcType="INTEGER" property="ismenu"/>
+        <result column="isopen" jdbcType="INTEGER" property="isopen"/>
+        <result column="levels" jdbcType="INTEGER" property="levels"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="num" jdbcType="INTEGER" property="num"/>
+        <result column="pcode" jdbcType="VARCHAR" property="pcode"/>
+        <result column="pcodes" jdbcType="VARCHAR" property="pcodes"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="tips" jdbcType="VARCHAR" property="tips"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_by, create_time, modify_by, modify_time, code, component, hidden, icon,
+        ismenu, isopen, levels, `name`, num, pcode, pcodes, `status`, tips, url
+    </sql>
+</mapper>

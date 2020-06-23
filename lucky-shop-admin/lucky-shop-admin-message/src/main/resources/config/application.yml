@@ -7,6 +7,9 @@ spring:
   application:
     name: lucky-shop-admin-message
 
+  main:
+    allow-bean-definition-overriding: true
+
   #数据库配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

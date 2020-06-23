@@ -64,7 +64,7 @@ public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMappe
     @Override
     public MessageTemplate findByCode(String code) {
         QueryWrapper<MessageTemplate> wrapper = new QueryWrapper<>();
-        wrapper.eq(MessageTemplate.COL_CODE,code);
+        wrapper.eq(MessageTemplate.COL_CODE, code);
         return this.getOne(wrapper);
     }
 }

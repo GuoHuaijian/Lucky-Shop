@@ -19,6 +19,7 @@
         <module>lucky-shop-admin-system-api</module>
         <module>lucky-shop-admin-ops-api</module>
         <module>lucky-shop-admin-mall-api</module>
+        <module>lucky-shop-admin-message-api</module>
     </modules>
 
     <properties>

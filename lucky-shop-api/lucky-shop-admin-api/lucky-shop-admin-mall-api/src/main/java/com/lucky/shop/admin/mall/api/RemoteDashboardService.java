@@ -24,5 +24,5 @@ public interface RemoteDashboardService {
      * @return
      */
     @GetMapping()
-     Map get();
+    Map get();
 }

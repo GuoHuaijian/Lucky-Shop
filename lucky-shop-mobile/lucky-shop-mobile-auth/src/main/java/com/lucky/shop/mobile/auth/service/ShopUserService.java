@@ -9,7 +9,7 @@ import com.lucky.shop.mobile.auth.domain.ShopUser;
  * @Author Guo Huaijian
  * @Date 2020/6/22 16:36
  */
-public interface ShopUserService extends IService<ShopUser>{
+public interface ShopUserService extends IService<ShopUser> {
 
     /**
      * 模拟发送短信
@@ -17,7 +17,7 @@ public interface ShopUserService extends IService<ShopUser>{
      * @param mobile
      * @return
      */
-    boolean  sendSmsCode(String mobile);
+    boolean sendSmsCode(String mobile);
 
     /**
      * 验证
@@ -43,5 +43,5 @@ public interface ShopUserService extends IService<ShopUser>{
      * @param initPwd
      * @return
      */
-     ShopUser register(String mobile,String initPwd);
+    ShopUser register(String mobile, String initPwd);
 }

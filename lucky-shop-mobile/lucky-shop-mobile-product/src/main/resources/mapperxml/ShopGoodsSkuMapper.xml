@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucky.shop.mobile.product.mapper.ShopGoodsSkuMapper">
+    <resultMap id="BaseResultMap" type="com.lucky.shop.mobile.product.domain.ShopGoodsSku">
+        <!--@mbg.generated-->
+        <!--@Table t_shop_goods_sku-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_by" jdbcType="BIGINT" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_by" jdbcType="BIGINT" property="modifyBy"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="code_name" jdbcType="VARCHAR" property="codeName"/>
+        <result column="id_goods" jdbcType="BIGINT" property="idGoods"/>
+        <result column="marketing_price" jdbcType="VARCHAR" property="marketingPrice"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="stock" jdbcType="INTEGER" property="stock"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_by, create_time, modify_by, modify_time, code, code_name, id_goods, marketing_price,
+        price, stock
+    </sql>
+</mapper>
