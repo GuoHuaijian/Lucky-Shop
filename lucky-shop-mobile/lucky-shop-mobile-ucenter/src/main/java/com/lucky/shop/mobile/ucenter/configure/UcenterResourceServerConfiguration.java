@@ -1,23 +1,30 @@
-package com.lucky.shop.mobile.auth.configure;
+package com.lucky.shop.mobile.ucenter.configure;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 
 /**
- * 个人信息资源服务器
+ * 资源服务器配置
  *
- * @Create by Guo Huaijian
- * @Since 2020/6/2 19:22
+ * @Author Guo Huaijian
+ * @Date 2020/6/14 13:05
  */
 @Configuration
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
-public class ProfileResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+public class UcenterResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -27,13 +34,12 @@ public class ProfileResourceServerConfiguration extends ResourceServerConfigurer
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("mobile/auth/login").permitAll()
                 .antMatchers("/**").permitAll();
     }
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         // 配置资源 ID
-        resources.resourceId("mobile-resources");
+        resources.resourceId("ucenter-resources");
     }
 }
