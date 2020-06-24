@@ -31,7 +31,7 @@ import java.util.Map;
  * @Date 2020/6/22 16:36
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("mobile/auth")
 public class LoginController {
 
     private Logger logger = LoggerFactory.getLogger(LoginController.class);

@@ -16,7 +16,7 @@ import java.util.Map;
  * @Date 2020/6/23 22:28
  */
 @RestController
-@RequestMapping("/user/order")
+@RequestMapping("mobile/order/user/order")
 public class ShopOrderController {
 
     @Autowired

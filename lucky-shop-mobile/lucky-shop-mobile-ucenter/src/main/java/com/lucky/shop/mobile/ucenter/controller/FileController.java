@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Date 2020/6/24 2:44
  */
 @RestController
-@RequestMapping("/file")
+@RequestMapping("mobile/ucenter/file")
 public class FileController {
 
     @Autowired

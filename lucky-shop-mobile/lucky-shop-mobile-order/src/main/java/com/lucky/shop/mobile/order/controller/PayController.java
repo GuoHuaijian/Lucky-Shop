@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/6/23 22:30
  */
 @RestController
-@RequestMapping("/pay")
+@RequestMapping("mobile/order/pay")
 public class PayController {
 
     @Autowired

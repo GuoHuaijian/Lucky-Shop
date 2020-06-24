@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/6/24 2:42
  */
 @RestController
-@RequestMapping("/user/favorite")
+@RequestMapping("mobile/ucenter/user/favorite")
 public class ShopFavoriteController {
 
     @Autowired

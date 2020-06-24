@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2020/6/24 1:27
  */
 @RestController
-@RequestMapping("/category")
+@RequestMapping("mobile/product/category")
 public class ShopCategoryController {
 
     @Autowired

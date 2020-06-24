@@ -94,6 +94,38 @@ spring:
           filters:
             - StripPrefix=1
 
+        # lucky-shop-mobile-auth
+        - id: LUCKY-SHOP-MOBILE-AUTH
+          uri: lb://lucky-shop-mobile-auth
+          predicates:
+            - Path=/dev-api/mobile/auth/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-mobile-order
+        - id: LUCKY-SHOP-MOBILE-ORDER
+          uri: lb://lucky-shop-mobile-order
+          predicates:
+            - Path=/dev-api/mobile/order/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-mobile-product
+        - id: LUCKY-SHOP-MOBILE-PRODUCT
+          uri: lb://lucky-shop-mobile-product
+          predicates:
+            - Path=/dev-api/mobile/product/**
+          filters:
+            - StripPrefix=1
+
+        # lucky-shop-mobile-ucenter
+        - id: LUCKY-SHOP-MOBILE-UCENTER
+          uri: lb://lucky-shop-mobile-ucenter
+          predicates:
+            - Path=/dev-api/mobile/ucenter/**
+          filters:
+            - StripPrefix=1
+
 management:
   endpoints:
     web:

@@ -16,7 +16,7 @@ import java.util.List;
  * @Date 2020/6/23 23:03
  */
 @RestController
-@RequestMapping("/user/cart")
+@RequestMapping("mobile/ucenter/user/cart")
 public class ShopCartController {
 
     @Autowired

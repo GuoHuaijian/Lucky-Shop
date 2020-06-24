@@ -16,7 +16,7 @@ import java.util.List;
  * @Date 2020/6/23 23:40
  */
 @RestController
-@RequestMapping("/user/address")
+@RequestMapping("mobile/ucenter/user/address")
 public class ShopAddressController {
 
     @Autowired

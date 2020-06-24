@@ -18,7 +18,7 @@ import java.util.List;
  * @Date 2020/6/24 2:24
  */
 @RestController
-@RequestMapping("/topic")
+@RequestMapping("mobile/product/topic")
 public class PromotionTopicController {
 
     @Autowired

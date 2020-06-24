@@ -42,7 +42,7 @@ auth:
     client_id: mobile
     client_secret: mobile
     #获取token地址
-    access-token-url: http://localhost:9000/oauth/token
+    access-token-url: http://localhost:9101/oauth/token
 
 management:
   endpoints:

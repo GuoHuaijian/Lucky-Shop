@@ -26,11 +26,12 @@
             <artifactId>lucky-shop-common-redis</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- message-api -->
         <dependency>
             <groupId>com.lucky.shop</groupId>
             <artifactId>lucky-shop-admin-message-api</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
