@@ -41,4 +41,30 @@ public interface RemoteFileService {
     @GetMapping("list")
     Page<SysFileInfo> list(@RequestParam(required = false) String originalFileName);
 
+    /**
+     * 主键获取文件信息
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    SysFileInfo getOne(@PathVariable Long id);
+
+    /**
+     * 保存
+     *
+     * @param fileInfo
+     */
+    @PostMapping
+    void save(@RequestBody SysFileInfo fileInfo);
+
+    /**
+     * 文件名获取文件信息
+     *
+     * @param realFileName
+     * @return
+     */
+    @GetMapping("fileName/{realFileName}")
+    SysFileInfo getByFileName(@PathVariable String realFileName);
+
 }

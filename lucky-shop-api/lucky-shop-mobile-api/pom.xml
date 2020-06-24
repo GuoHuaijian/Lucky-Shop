@@ -17,6 +17,7 @@
 
     <modules>
         <module>lucky-shop-mobile-ucenter-api</module>
+        <module>lucky-shop-mobile-product-api</module>
     </modules>
 
     <properties>

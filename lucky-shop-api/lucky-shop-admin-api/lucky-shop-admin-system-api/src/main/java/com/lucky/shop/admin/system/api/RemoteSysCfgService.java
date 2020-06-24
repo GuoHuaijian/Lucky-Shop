@@ -1,11 +1,14 @@
 package com.lucky.shop.admin.system.api;
 
+import com.lucky.shop.admin.system.api.domain.SysCfg;
 import com.lucky.shop.admin.system.api.factory.SysCfgServiceFactory;
 import com.lucky.shop.common.core.constant.ServiceNameConstants;
 import com.lucky.shop.config.configuration.FeignRequestConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * 系统参数接口
@@ -28,5 +31,22 @@ public interface RemoteSysCfgService {
      */
     @GetMapping("getCfgValue/{cfgName}")
     String getCfgValue(@PathVariable String cfgName);
+
+    /**
+     * 根据name获取系统参数
+     *
+     * @param cfgName
+     * @return
+     */
+    @GetMapping("getByCfgName/{cfgName}")
+    SysCfg getByCfgName(@PathVariable String cfgName);
+
+    /**
+     * 编辑参数
+     *
+     * @param cfg
+     */
+    @PostMapping("saveOrUpdate")
+    void saveOrUpdate(@RequestBody SysCfg cfg);
 
 }

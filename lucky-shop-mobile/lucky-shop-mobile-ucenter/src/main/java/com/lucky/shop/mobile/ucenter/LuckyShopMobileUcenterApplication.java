@@ -2,13 +2,14 @@ package com.lucky.shop.mobile.ucenter;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author Admin
  */
 @SpringCloudApplication
+@EnableFeignClients(basePackages = "com.lucky.shop.**.**.api")
 @MapperScan(basePackages = "com.lucky.shop.mobile.ucenter.mapper")
 public class LuckyShopMobileUcenterApplication {
 

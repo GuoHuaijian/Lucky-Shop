@@ -39,7 +39,7 @@ public class ShopCart implements Serializable {
      * 数量
      */
     @TableField(value = "count")
-    private String count;
+    private BigDecimal count;
 
     /**
      * 商品id

@@ -32,4 +32,9 @@ public class ServiceNameConstants {
      * 用户中心模块
      */
     public static final String LUCKY_SHOP_MOBILE_UCENTER = "lucky-shop-mobile-ucenter";
+
+    /**
+     * 商品模块
+     */
+    public static final String LUCKY_SHOP_MOBILE_PRODUCT = "lucky-shop-mobile-product";
 }

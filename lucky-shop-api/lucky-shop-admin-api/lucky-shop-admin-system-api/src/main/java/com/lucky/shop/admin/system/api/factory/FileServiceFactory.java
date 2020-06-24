@@ -1,8 +1,8 @@
 package com.lucky.shop.admin.system.api.factory;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.lucky.shop.admin.system.api.domain.SysFileInfo;
 import com.lucky.shop.admin.system.api.RemoteFileService;
+import com.lucky.shop.admin.system.api.domain.SysFileInfo;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -29,6 +29,21 @@ public class FileServiceFactory implements FallbackFactory<RemoteFileService> {
 
             @Override
             public Page<SysFileInfo> list(String originalFileName) {
+                return null;
+            }
+
+            @Override
+            public SysFileInfo getOne(Long id) {
+                return null;
+            }
+
+            @Override
+            public void save(SysFileInfo fileInfo) {
+
+            }
+
+            @Override
+            public SysFileInfo getByFileName(String realFileName) {
                 return null;
             }
         };

@@ -162,4 +162,26 @@ public class SysCfgController {
         String cfgValue = cfgService.getCfgValue(cfgName);
         return cfgValue;
     }
+
+    /**
+     * 根据name获取系统参数
+     *
+     * @param cfgName
+     * @return
+     */
+    @GetMapping("getByCfgName/{cfgName}")
+    public SysCfg getByCfgName(@PathVariable String cfgName) {
+        SysCfg sysCfg = cfgService.getByCfgName(cfgName);
+        return sysCfg;
+    }
+
+    /**
+     * 编辑参数
+     *
+     * @param cfg
+     */
+    @PostMapping("saveOrUpdate")
+    public void saveOrUpdate(@RequestBody SysCfg cfg) {
+        cfgService.saveOrUpdate(cfg);
+    }
 }

@@ -60,4 +60,36 @@ public class FileServiceController {
         IPage<SysFileInfo> fileInfoIPage = fileInfoService.page(page, wrapper);
         return (Page<SysFileInfo>) fileInfoIPage;
     }
+
+    /**
+     * 主键获取文件信息
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public SysFileInfo getOne(@PathVariable Long id) {
+        return fileInfoService.getById(id);
+    }
+
+    /**
+     * 保存
+     *
+     * @param fileInfo
+     */
+    @PostMapping
+    public void save(@RequestBody SysFileInfo fileInfo) {
+        fileInfoService.save(fileInfo);
+    }
+
+    /**
+     * 文件名获取文件信息
+     *
+     * @param realFileName
+     * @return
+     */
+    @GetMapping("fileName/{realFileName}")
+    public SysFileInfo getByFileName(@PathVariable String realFileName) {
+        return fileService.getByName(realFileName);
+    }
 }

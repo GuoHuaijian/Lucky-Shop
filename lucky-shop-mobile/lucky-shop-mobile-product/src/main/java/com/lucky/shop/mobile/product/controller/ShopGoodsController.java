@@ -80,4 +80,25 @@ public class ShopGoodsController {
         Map map = goodsService.get(id);
         return ResponseResult.success(map);
     }
+
+    /**
+     * 根据主键获取商品
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("getOne/{id}")
+    public ShopGoods getOne(@PathVariable Long id) {
+        return goodsService.getById(id);
+    }
+
+    /**
+     * 保存商品
+     *
+     * @param goods
+     */
+    @PostMapping()
+    public void save(@RequestBody ShopGoods goods) {
+        goodsService.save(goods);
+    }
 }
