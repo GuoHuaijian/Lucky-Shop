@@ -35,7 +35,7 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 # Oauth2相关配置
-auth:
+Oauth2:
   oauth2:
     #密码模式
     grant_type: password

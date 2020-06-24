@@ -36,16 +36,16 @@ public class LoginController {
 
     private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-    @Value("${auth.oauth2.access-token-url}")
+    @Value("${Oauth2.oauth2.access-token-url}")
     public String accessTokenUrl;
 
-    @Value("${auth.oauth2.grant_type}")
+    @Value("${Oauth2.oauth2.grant_type}")
     public String oauth2GrantType;
 
-    @Value("${auth.oauth2.client_id}")
+    @Value("${Oauth2.oauth2.client_id}")
     public String oauth2ClientId;
 
-    @Value("${auth.oauth2.client_secret}")
+    @Value("${Oauth2.oauth2.client_secret}")
     public String oauth2ClientSecret;
 
     @Autowired

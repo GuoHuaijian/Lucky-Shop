@@ -20,7 +20,7 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${Oauth2.oauth2.resource.token-info-uri}")
+    @Value("${Oauth2.oauth2.resource.token-info-url}")
     public String tokenInfoUrl;
 
     @Value("${Oauth2.oauth2.client.client-id}")
