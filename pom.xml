@@ -24,6 +24,7 @@
         <module>lucky-shop-config</module>
         <module>lucky-shop-gateway</module>
         <module>lucky-shop-api</module>
+        <module>lucky-shop-generator</module>
     </modules>
 
     <properties>
