@@ -2,7 +2,6 @@ package com.lucky.shop.mobile.ucenter.api.factory;
 
 import com.lucky.shop.mobile.ucenter.api.RemoteShopAddressService;
 import com.lucky.shop.mobile.ucenter.api.domain.ShopAddress;
-import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -14,20 +13,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class ShopAddressServiceFactory implements FallbackFactory<RemoteShopAddressService> {
-    @Override
-    public RemoteShopAddressService create(Throwable throwable) {
-        log.error("地址服务调用失败:{}", throwable.getMessage());
-        return new RemoteShopAddressService() {
-            @Override
-            public ShopAddress getDefaultAddr(Long idUser) {
-                return null;
-            }
+public class ShopAddressServiceFactory implements RemoteShopAddressService {
 
-            @Override
-            public ShopAddress get(Long chosenAddressId) {
-                return null;
-            }
-        };
+    @Override
+    public ShopAddress getDefaultAddr(Long idUser) {
+        log.error("地址服务调用失败:{}");
+        return null;
+    }
+
+    @Override
+    public ShopAddress get(Long chosenAddressId) {
+        log.error("地址服务调用失败:{}");
+        return null;
     }
 }

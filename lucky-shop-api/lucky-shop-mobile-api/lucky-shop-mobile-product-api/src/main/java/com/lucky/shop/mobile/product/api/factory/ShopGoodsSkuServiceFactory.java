@@ -2,7 +2,6 @@ package com.lucky.shop.mobile.product.api.factory;
 
 import com.lucky.shop.mobile.product.api.RemoteShopGoodsSkuService;
 import com.lucky.shop.mobile.product.api.domain.ShopGoodsSku;
-import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -14,15 +13,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class ShopGoodsSkuServiceFactory implements FallbackFactory<RemoteShopGoodsSkuService> {
+public class ShopGoodsSkuServiceFactory implements RemoteShopGoodsSkuService {
+
+
     @Override
-    public RemoteShopGoodsSkuService create(Throwable throwable) {
-        log.error("商品SKU服务调用失败:{}", throwable.getMessage());
-        return new RemoteShopGoodsSkuService() {
-            @Override
-            public ShopGoodsSku getOne(Long id) {
-                return null;
-            }
-        };
+    public ShopGoodsSku getOne(Long id) {
+        log.error("商品SKU服务调用失败:{}");
+        return null;
     }
 }

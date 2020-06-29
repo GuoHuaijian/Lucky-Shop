@@ -34,6 +34,11 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: localhost:8080
+
 # Oauth2相关配置  配置为security 则不需要自定义验证
 Oauth2:
   oauth2:
@@ -48,6 +53,11 @@ management:
     web:
       exposure:
         include: "*"
+
+#激活sentinel的支持
+feign:
+  sentinel:
+    enabled: true
 
 # mybatis-plus相关配置
 mybatis-plus:

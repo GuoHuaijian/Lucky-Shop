@@ -3,7 +3,6 @@ package com.lucky.shop.admin.ops.api.factory;
 import com.lucky.shop.admin.ops.api.RemoteSysOperationLogService;
 import com.lucky.shop.admin.ops.api.domain.OperationLog;
 import com.lucky.shop.common.core.dto.ResponseResult;
-import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,16 +14,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class SysOperationLogServiceFactory implements FallbackFactory<RemoteSysOperationLogService> {
+public class SysOperationLogServiceFactory implements RemoteSysOperationLogService {
 
     @Override
-    public RemoteSysOperationLogService create(Throwable throwable) {
-        log.error("操作日志服务调用失败:{}", throwable.getMessage());
-        return new RemoteSysOperationLogService() {
-            @Override
-            public ResponseResult save(OperationLog operationLog) {
-                return null;
-            }
-        };
+    public ResponseResult save(OperationLog operationLog) {
+        log.error("操作日志服务调用失败:{}");
+        return null;
     }
 }

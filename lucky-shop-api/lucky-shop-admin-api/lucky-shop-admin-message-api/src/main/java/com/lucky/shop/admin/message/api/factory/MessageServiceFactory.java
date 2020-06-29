@@ -1,7 +1,6 @@
 package com.lucky.shop.admin.message.api.factory;
 
 import com.lucky.shop.admin.message.api.RemoteMessageService;
-import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -13,15 +12,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class MessageServiceFactory implements FallbackFactory<RemoteMessageService> {
-    @Override
-    public RemoteMessageService create(Throwable throwable) {
-        log.error("登录日志服务调用失败:{}", throwable.getMessage());
-        return new RemoteMessageService() {
-            @Override
-            public void sendSms(String tplCode, String receiver, String... args) {
+public class MessageServiceFactory implements RemoteMessageService {
 
-            }
-        };
+    @Override
+    public void sendSms(String tplCode, String receiver, String... args) {
+        log.error("登录日志服务调用失败:{}");
     }
 }

@@ -4,13 +4,15 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Admin
  */
 @SpringCloudApplication
-@EnableFeignClients(basePackages = "com.lucky.shop.admin.**.api")
+@EnableFeignClients
 @MapperScan(basePackages = "com.lucky.shop.admin.cms.mapper")
+@ComponentScan(basePackages = "com.lucky.shop.admin.**.api")
 public class LuckyShopAdminCmsApplication {
 
     public static void main(String[] args) {

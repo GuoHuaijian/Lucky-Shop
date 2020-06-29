@@ -2,7 +2,6 @@ package com.lucky.shop.admin.system.api.factory;
 
 import com.lucky.shop.admin.system.api.RemoteSysUserService;
 import com.lucky.shop.admin.system.api.domain.SysUser;
-import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -14,21 +13,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class SysUserServiceFactory implements FallbackFactory<RemoteSysUserService> {
+public class SysUserServiceFactory implements RemoteSysUserService {
 
     @Override
-    public RemoteSysUserService create(Throwable throwable) {
-        log.error("账号服务调用失败:{}", throwable.getMessage());
-        return new RemoteSysUserService() {
-            @Override
-            public SysUser getUserByAccount(String account) {
-                return null;
-            }
+    public SysUser getUserByAccount(String account) {
+        log.error("账号服务调用失败:{}");
+        return null;
+    }
 
-            @Override
-            public SysUser getUserById(String id) {
-                return null;
-            }
-        };
+    @Override
+    public SysUser getUserById(String id) {
+        log.error("账号服务调用失败:{}");
+        return null;
     }
 }
