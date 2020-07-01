@@ -14,6 +14,7 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <spring-clould-oauth2.version>2.2.1.RELEASE</spring-clould-oauth2.version>
+        <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
         <Mybatis-Plus.version>3.1.0</Mybatis-Plus.version>
         <spring-boot-redis.version>2.2.5.RELEASE</spring-boot-redis.version>
         <druid.version>1.1.14</druid.version>

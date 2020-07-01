@@ -39,6 +39,27 @@ spring:
         port: 8720
         dashboard: localhost:8080
 
+  #SpringBootAdmin配置
+  boot:
+    admin:
+      client:
+        url: http://localhost:9200
+        username: admin
+        password: admin
+
+#监控配置
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+
 feign:
   sentinel:
     enabled: true
@@ -51,12 +72,6 @@ Oauth2:
       client-secret: admin
     resource:
       token-info-url: http://localhost:9000/oauth/check_token
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 
 # mybatis-plus相关配置
 mybatis-plus:

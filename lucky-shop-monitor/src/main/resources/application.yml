@@ -1,0 +1,51 @@
+#服务端口
+server:
+  port: 9200
+
+spring:
+  #服务名
+  application:
+    name: lucky-shop-monitor
+
+#SpringBootAdmin 登录密码
+  security:
+    user:
+      name: admin
+      password: admin
+
+  main:
+    allow-bean-definition-overriding: true
+
+  #Cloud相关配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: localhost:8080
+
+#监控配置
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+
+#激活sentinel的支持
+feign:
+  sentinel:
+    enabled: true
+
+# 日志配置
+logging:
+  level:
+    com.lucky.shop.monitor: debug
+    org.springframework: debug

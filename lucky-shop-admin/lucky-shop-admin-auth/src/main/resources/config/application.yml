@@ -39,6 +39,27 @@ spring:
         port: 8720
         dashboard: localhost:8080
 
+  #SpringBootAdmin配置
+  boot:
+    admin:
+      client:
+        url: http://localhost:9200
+        username: admin
+        password: admin
+
+#监控配置
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+
 # Oauth2相关配置
 Oauth2:
   oauth2:
@@ -47,13 +68,7 @@ Oauth2:
     client_id: admin
     client_secret: admin
     #获取token地址
-    access-token-url: http://localhost:9000/oauth/token
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+    access-token-url: http://localhost:9888/oauth/token
 
 #激活sentinel的支持
 feign:

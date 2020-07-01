@@ -10,6 +10,14 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
+  #SpringBootAdmin配置
+  boot:
+    admin:
+      client:
+        url: http://localhost:9200
+        username: admin
+        password: admin
+
   #Cloud相关配置
   cloud:
     nacos:
@@ -130,9 +138,16 @@ spring:
           filters:
             - StripPrefix=1
 
+#监控配置
 management:
+  endpoint:
+    health:
+      show-details: always
   endpoints:
     web:
+      exposure:
+        include: "*"
+    jmx:
       exposure:
         include: "*"
 
