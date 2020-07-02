@@ -13,8 +13,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 /**
  * 资源服务器配置
  *
- * @Author Guo Huaijian
- * @Date 2020/6/14 13:05
+ * @Create by Guo Huaijian
+ * @Since 2020/6/2 20:12
  */
 @Configuration
 @EnableResourceServer

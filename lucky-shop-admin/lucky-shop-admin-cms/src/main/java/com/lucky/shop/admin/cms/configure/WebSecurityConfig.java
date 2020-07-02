@@ -1,5 +1,6 @@
 package com.lucky.shop.admin.cms.configure;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,15 +10,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
 import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * 校验发往本服务的请求头的令牌
  *
- * @Author Guo Huaijian
- * @Date 2020/6/14 13:05
+ * @Create by Guo Huaijian
+ * @Since 2020/6/2 20:09
  */
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${Oauth2.oauth2.resource.token-info-url}")
@@ -29,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${Oauth2.oauth2.client.client-secret}")
     public String oauth2ClientSecret;
 
+    private final RestTemplate restTemplate;
 
     /**
      * 通过这个Bean去远程调用认证服务器验token
@@ -43,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 在认证服务器配置的服务的ClientSecret
         tokenServices.setClientSecret(oauth2ClientSecret);
         tokenServices.setCheckTokenEndpointUrl(tokenInfoUrl);
+        tokenServices.setRestTemplate(restTemplate);
         return tokenServices;
     }
 

@@ -20,7 +20,7 @@ public interface TSysMenuMapper extends BaseMapper<TSysMenu> {
      * @param roleId
      * @return
      */
-    @Select(value = "select url from t_sys_relation rel inner join t_sys_menu m on rel.menuid = m.id " + "where m.status=1 and  rel.roleid = ?1")
+    @Select(value = "select url from t_sys_relation rel inner join t_sys_menu m on rel.menuid = m.id " + "where m" + ".status=1 and  rel.roleid = #{roleId}")
     List<String> getResUrlsByRoleId(Long roleId);
 
     /**
@@ -29,6 +29,6 @@ public interface TSysMenuMapper extends BaseMapper<TSysMenu> {
      * @param roleId
      * @return
      */
-    @Select(value = "select code from t_sys_relation rel inner join t_sys_menu m on rel.menuid = m.id" + " where m.status=1 and  rel.roleid = ?1")
+    @Select(value = "select code from t_sys_relation rel inner join t_sys_menu m on rel.menuid = m.id" + " where m.status=1 and  rel.roleid = #{roleId}")
     List<String> getResCodesByRoleId(Long roleId);
 }

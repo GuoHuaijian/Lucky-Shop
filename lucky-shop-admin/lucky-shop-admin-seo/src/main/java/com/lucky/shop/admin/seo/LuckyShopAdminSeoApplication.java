@@ -3,12 +3,14 @@ package com.lucky.shop.admin.seo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Admin
  */
 @SpringCloudApplication
 @MapperScan(basePackages = "com.lucky.shop.admin.seo.mapper")
+@ComponentScan(basePackages = "com.lucky.shop.**")
 public class LuckyShopAdminSeoApplication {
 
     public static void main(String[] args) {

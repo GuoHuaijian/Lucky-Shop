@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringCloudApplication
 @MapperScan(basePackages = "com.lucky.shop.admin.system.mapper")
-@ComponentScan(basePackages = "com.lucky.shop.common.redis.service")
+@ComponentScan(basePackages = "com.lucky.shop.**")
 public class LuckyShopAdminSystemApplication {
 
     public static void main(String[] args) {

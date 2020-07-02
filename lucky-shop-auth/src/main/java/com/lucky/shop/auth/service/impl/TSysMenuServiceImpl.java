@@ -19,7 +19,7 @@ import java.util.List;
 public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu> implements TSysMenuService {
 
     @Autowired
-    private TSysMenuService menuService;
+    private TSysMenuMapper menuMapper;
 
     /**
      * 查询菜单地址
@@ -29,7 +29,7 @@ public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu> i
      */
     @Override
     public List<String> getResUrlsByRoleId(Long roleId) {
-        return menuService.getResUrlsByRoleId(roleId);
+        return menuMapper.getResUrlsByRoleId(roleId);
     }
 
     /**
@@ -40,6 +40,6 @@ public class TSysMenuServiceImpl extends ServiceImpl<TSysMenuMapper, TSysMenu> i
      */
     @Override
     public List<String> getResCodesByRoleId(Long roleId) {
-        return menuService.getResCodesByRoleId(roleId);
+        return menuMapper.getResCodesByRoleId(roleId);
     }
 }

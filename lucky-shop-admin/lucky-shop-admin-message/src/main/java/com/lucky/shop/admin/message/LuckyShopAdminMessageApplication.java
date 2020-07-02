@@ -10,9 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @author Admin
  */
 @SpringCloudApplication
-@EnableFeignClients(basePackages = "com.lucky.shop.admin.system.api")
+@EnableFeignClients
 @MapperScan(basePackages = "com.lucky.shop.admin.message.mapper")
-@ComponentScan(basePackages = "org.springframework.mail.javamail")
+@ComponentScan(basePackages = "org.springframework.mail.**")
 public class LuckyShopAdminMessageApplication {
 
     public static void main(String[] args) {

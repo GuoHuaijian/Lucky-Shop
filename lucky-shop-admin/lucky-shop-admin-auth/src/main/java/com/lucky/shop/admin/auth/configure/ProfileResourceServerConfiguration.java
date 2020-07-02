@@ -28,7 +28,8 @@ public class ProfileResourceServerConfiguration extends ResourceServerConfigurer
                 .and()
                 .authorizeRequests()
                 .antMatchers("/auth/login").permitAll()
-                .antMatchers("/**").hasAuthority("Admin");
+                .antMatchers("/**").permitAll();
+//                .hasAuthority("Admin");
     }
 
     @Override
