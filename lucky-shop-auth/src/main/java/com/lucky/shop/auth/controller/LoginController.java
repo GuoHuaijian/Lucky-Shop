@@ -3,6 +3,7 @@ package com.lucky.shop.auth.controller;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lucky.shop.auth.domain.AuthorizationUser;
@@ -10,6 +11,7 @@ import com.lucky.shop.auth.domain.TSysUser;
 import com.lucky.shop.auth.service.TSysUserService;
 import com.lucky.shop.common.core.dto.ResponseResult;
 import com.lucky.shop.common.core.tool.Maps;
+import com.lucky.shop.common.redis.service.RedisService;
 import org.nutz.mapl.Mapl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -57,6 +59,9 @@ public class LoginController {
 
     @Autowired
     private TokenStore tokenStore;
+
+    @Resource
+    private RedisService redisService;
 
     /**
      * 登录
@@ -117,6 +122,7 @@ public class LoginController {
         }
         try {
             AuthorizationUser authorizationInfo = userService.getAuthorizationInfo(username);
+            redisService.setCacheObject(com.lucky.shop.common.core.utils.HttpUtil.getToken(), JSON.toJSON(authorizationInfo));
             Map map = Maps.newHashMap("name", user.getName(), "role", "admin", "roles", authorizationInfo.getRoleCodes());
             map.put("permissions", authorizationInfo.getUrls());
             Map profile = (Map) Mapl.toMaplist(user);

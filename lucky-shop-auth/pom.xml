@@ -125,6 +125,12 @@
             <artifactId>nutz-integration-spring</artifactId>
             <version>${nutz.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-common-redis</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 

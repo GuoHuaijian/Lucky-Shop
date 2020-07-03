@@ -72,7 +72,8 @@ public class HttpUtil {
     }
 
     public static String getToken() {
-        return getRequest().getHeader("Authorization");
+        String[] str = getRequest().getHeader("Authorization").split(" ");
+        return str[1];
     }
 
 

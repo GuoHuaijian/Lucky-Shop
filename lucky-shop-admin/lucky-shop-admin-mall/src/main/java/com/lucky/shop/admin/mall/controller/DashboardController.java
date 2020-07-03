@@ -15,7 +15,7 @@ import java.util.Map;
  * @Date 2020/6/22 15:03
  */
 @RestController
-@RequestMapping("/dashboard")
+@RequestMapping("mall/dashboard")
 public class DashboardController {
 
     @Autowired

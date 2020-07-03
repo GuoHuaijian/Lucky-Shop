@@ -2,6 +2,7 @@ package com.lucky.shop.admin.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lucky.shop.admin.system.domain.SysMenu;
+import com.lucky.shop.admin.system.domain.vo.SysMenuVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
@@ -21,7 +22,7 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      * @param roleIds
      * @return
      */
-    List getMenusByRoleids(String roleIds);
+    List<SysMenuVO> getMenusByRoleids(@Param("roleIds") String roleIds);
 
     /**
      * 获取菜单

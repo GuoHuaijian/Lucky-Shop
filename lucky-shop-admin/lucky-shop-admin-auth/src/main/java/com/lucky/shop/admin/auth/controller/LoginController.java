@@ -120,7 +120,7 @@ public class LoginController {
         }
         try {
             AuthorizationUser authorizationInfo = userService.getAuthorizationInfo(username);
-            redisService.setCacheObject(com.lucky.shop.common.core.utils.HttpUtil.getToken(), authentication);
+            redisService.setCacheObject(com.lucky.shop.common.core.utils.HttpUtil.getToken(), authorizationInfo);
             Map map = Maps.newHashMap("name", user.getName(), "role", "admin", "roles", authorizationInfo.getRoleCodes());
             map.put("permissions", authorizationInfo.getUrls());
             Map profile = (Map) Mapl.toMaplist(user);

@@ -1,5 +1,7 @@
 package com.lucky.shop.admin.system.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lucky.shop.admin.system.domain.AuthorizationUser;
@@ -43,8 +45,9 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      */
     @Override
     public List<RouterMenu> listForRouter() {
-        AuthorizationUser shiroUser = redisService.getCacheObject(HttpUtil.getToken());
-        List<RouterMenu> list = this.getSideBarMenus(shiroUser.getRoleList());
+        Object cacheObject = redisService.getCacheObject(HttpUtil.getToken());
+        AuthorizationUser authorizationUser = JSONObject.toJavaObject((JSON) cacheObject, AuthorizationUser.class);
+        List<RouterMenu> list = this.getSideBarMenus(authorizationUser.getRoleList());
         return list;
     }
 
@@ -169,28 +172,29 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
     private List<RouterMenu> transferRouteMenu(List menus) {
         List<RouterMenu> routerMenus = new ArrayList<>();
+        System.out.println(menus);
         try {
             for (int i = 0; i < menus.size(); i++) {
-                Object[] source = (Object[]) menus.get(i);
-                if (source[10] == null) {
+                SysMenuVO source = (SysMenuVO) menus.get(i);
+                if (source.getComponent() == null) {
                     continue;
                 }
 
                 RouterMenu menu = new RouterMenu();
-                menu.setPath(String.valueOf(source[4]));
-                menu.setName(String.valueOf(source[3]));
+                menu.setPath(String.valueOf(source.getUrl()));
+                menu.setName(String.valueOf(source.getName()));
                 MenuMeta meta = new MenuMeta();
-                meta.setIcon(String.valueOf(source[1]));
+                meta.setIcon(String.valueOf(source.getIcon()));
                 // 如果使用前端vue-i18n对菜单进行国际化，则title設置为code，且code需要与国际化资源文件中的key值一致
-                meta.setTitle(String.valueOf(source[8]));
+                meta.setTitle(String.valueOf(source.getCode()));
                 // 如果不需要做国际化，则title直接设置后台管理配置的菜单标题即可
                 // meta.setTitle(String.valueOf(source[3]));
-                menu.setNum(Integer.valueOf(source[7].toString()));
-                menu.setParentId(Long.valueOf(source[2].toString()));
-                menu.setComponent(source[10].toString());
-                menu.setId(Long.valueOf(source[0].toString()));
+                menu.setNum(Integer.valueOf(source.getNum()));
+                menu.setParentId(Long.valueOf(source.getParentId()));
+                menu.setComponent(source.getComponent());
+                menu.setId(Long.valueOf(source.getId()));
                 menu.setMeta(meta);
-                if ("1".equals(source[11].toString())) {
+                if ("1".equals(source.getHidden())) {
                     menu.setHidden(true);
                 }
                 routerMenus.add(menu);

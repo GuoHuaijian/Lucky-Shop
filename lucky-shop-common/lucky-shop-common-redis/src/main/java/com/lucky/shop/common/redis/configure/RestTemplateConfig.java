@@ -1,4 +1,4 @@
-package com.lucky.shop.admin.system.configure;
+package com.lucky.shop.common.redis.configure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
