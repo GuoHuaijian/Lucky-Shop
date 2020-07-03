@@ -14,7 +14,7 @@ import java.util.Map;
  * @Author Guo Huaijian
  * @Date 2020/6/22 15:10
  */
-@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_MALL, path = "dashboard", configuration =
+@FeignClient(value = ServiceNameConstants.LUCKY_SHOP_ADMIN_MALL, path = "mall/dashboard", configuration =
         FeignRequestConfiguration.class, fallbackFactory = DashboardServiceFactory.class)
 public interface RemoteDashboardService {
 
