@@ -33,6 +33,14 @@
     </properties>
 
     <dependencies>
+
+        <!-- Config -->
+        <dependency>
+            <groupId>com.lucky.shop</groupId>
+            <artifactId>lucky-shop-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Common-Core -->
         <dependency>
             <groupId>com.lucky.shop</groupId>
