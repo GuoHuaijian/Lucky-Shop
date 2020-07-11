@@ -12,6 +12,7 @@ import com.lucky.shop.admin.mall.service.ShopGoodsService;
 import com.lucky.shop.admin.mall.service.ShopGoodsSkuService;
 import com.lucky.shop.common.core.factory.PageFactory;
 import com.lucky.shop.common.core.tool.LogObjectHolder;
+import com.lucky.shop.common.core.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,9 @@ public class ShopGoodsServiceImpl extends ServiceImpl<ShopGoodsMapper, ShopGoods
     public Page<ShopGoods> goodsList(String name) {
         Page<ShopGoods> page = new PageFactory<ShopGoods>().defaultPage();
         QueryWrapper<ShopGoods> wrapper = new QueryWrapper<>();
-        wrapper.like(ShopGoods.COL_NAME, name);
+        if(StringUtil.isNotEmpty(name)){
+            wrapper.like(ShopGoods.COL_NAME, name);
+        }
         IPage<ShopGoods> goodsIPage = this.page(page, wrapper);
         return (Page<ShopGoods>) goodsIPage;
     }

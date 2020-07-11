@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author Admin
  */
 @SpringCloudApplication
-@EnableFeignClients
+@EnableFeignClients("com.lucky.shop.admin.mall.api")
 @ComponentScan(basePackages = "com.lucky.shop.**")
 public class LuckyShopAdminDashboardApplication {
 
