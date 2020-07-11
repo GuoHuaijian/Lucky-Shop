@@ -4,10 +4,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.lucky.shop.admin.mall.domain.ShopCategory;
 import com.lucky.shop.admin.mall.domain.ShopGoods;
 import com.lucky.shop.admin.mall.domain.ShopGoodsSku;
 import com.lucky.shop.admin.mall.domain.vo.GoodsVo;
 import com.lucky.shop.admin.mall.mapper.ShopGoodsMapper;
+import com.lucky.shop.admin.mall.service.ShopCategoryService;
 import com.lucky.shop.admin.mall.service.ShopGoodsService;
 import com.lucky.shop.admin.mall.service.ShopGoodsSkuService;
 import com.lucky.shop.common.core.factory.PageFactory;
@@ -30,6 +32,9 @@ public class ShopGoodsServiceImpl extends ServiceImpl<ShopGoodsMapper, ShopGoods
     @Autowired
     private ShopGoodsSkuService goodsSkuService;
 
+    @Autowired
+    private ShopCategoryService categoryService;
+
     /**
      * 商品列表
      *
@@ -44,7 +49,14 @@ public class ShopGoodsServiceImpl extends ServiceImpl<ShopGoodsMapper, ShopGoods
             wrapper.like(ShopGoods.COL_NAME, name);
         }
         IPage<ShopGoods> goodsIPage = this.page(page, wrapper);
-        return (Page<ShopGoods>) goodsIPage;
+        List<ShopGoods> goodsList = goodsIPage.getRecords();
+        for (ShopGoods goods : goodsList) {
+            QueryWrapper<ShopCategory> categoryQueryWrapper = new QueryWrapper<>();
+            categoryQueryWrapper.eq(ShopCategory.COL_ID,goods.getIdCategory());
+            ShopCategory shopCategory = categoryService.getOne(categoryQueryWrapper);
+            goods.setCategory(shopCategory);
+        }
+        return (Page<ShopGoods>) goodsIPage.setRecords(goodsList);
     }
 
     /**

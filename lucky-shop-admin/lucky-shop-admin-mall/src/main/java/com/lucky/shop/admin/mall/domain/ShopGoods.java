@@ -126,6 +126,12 @@ public class ShopGoods implements Serializable {
     @TableField(value = "stock")
     private Integer stock;
 
+    /**
+     * 分类详情
+     */
+    @TableField(exist = false)
+    private ShopCategory category;
+
     private static final long serialVersionUID = 1L;
 
     public static final String COL_ID = "id";
