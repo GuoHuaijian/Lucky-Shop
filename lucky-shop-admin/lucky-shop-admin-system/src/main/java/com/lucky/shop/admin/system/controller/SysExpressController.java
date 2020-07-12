@@ -96,4 +96,16 @@ public class SysExpressController {
         expressService.changeIsOnSale(id, disabled);
         return ResponseResult.success();
     }
+
+    /**
+     * 通过id查询快递
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("test/{id}")
+    public SysExpress getExpressById(@PathVariable Long id){
+        SysExpress express = expressService.getById(id);
+        return express;
+    }
 }

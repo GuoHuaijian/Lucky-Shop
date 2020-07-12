@@ -1,18 +1,26 @@
 package com.lucky.shop.admin.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lucky.shop.admin.mall.domain.ShopOrder;
-import com.lucky.shop.admin.mall.domain.ShopOrderLog;
+import com.lucky.shop.admin.mall.domain.*;
 import com.lucky.shop.admin.mall.mapper.ShopOrderMapper;
-import com.lucky.shop.admin.mall.service.ShopOrderLogService;
-import com.lucky.shop.admin.mall.service.ShopOrderService;
+import com.lucky.shop.admin.mall.service.*;
 import com.lucky.shop.admin.mall.utils.SysUserUtils;
+import com.lucky.shop.admin.system.api.RemoteSysExpressService;
+import com.lucky.shop.admin.system.api.domain.SysExpress;
 import com.lucky.shop.common.core.enums.OrderEnum;
+import com.lucky.shop.common.core.factory.PageFactory;
 import com.lucky.shop.common.core.tool.Maps;
+import com.lucky.shop.common.core.utils.DateUtil;
+import com.lucky.shop.common.core.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +36,18 @@ public class ShopOrderServiceImpl extends ServiceImpl<ShopOrderMapper, ShopOrder
 
     @Autowired
     private ShopOrderLogService orderLogService;
+
+    @Autowired
+    private ShopUserService userService;
+
+    @Autowired
+    private ShopAddressService addressService;
+
+    @Autowired
+    private ShopOrderItemService orderItemService;
+
+    @Resource
+    private RemoteSysExpressService expressService;
 
     @Autowired
     private SysUserUtils sysUserUtils;
@@ -111,6 +131,66 @@ public class ShopOrderServiceImpl extends ServiceImpl<ShopOrderMapper, ShopOrder
     @Override
     public Map getRealPrice() {
         return orderMapper.getRealPrice();
+    }
+
+    /**
+     * 获取订单列表
+     *
+     * @param mobile
+     * @param orderSn
+     * @param status
+     * @param date
+     * @param startDate
+     * @param endDate
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public Page<ShopOrder> orderList(String mobile, String orderSn, String status, String date, String startDate, String endDate) {
+        Page<ShopOrder> page = new PageFactory<ShopOrder>().defaultPage();
+        QueryWrapper<ShopOrder> wrapper = new QueryWrapper<>();
+        if (StringUtil.isNotEmpty(orderSn)) {
+            wrapper.eq(ShopOrder.COL_ORDER_SN, orderSn);
+        }
+        if (StringUtil.isNotEmpty(mobile)) {
+            QueryWrapper<ShopUser> wrapper1 = new QueryWrapper<>();
+            wrapper1.eq(ShopUser.COL_MOBILE, mobile);
+            ShopUser shopUser = userService.getOne(wrapper1);
+            wrapper.eq(ShopOrder.COL_ID_USER, shopUser.getId());
+        }
+        if (StringUtil.isNotEmpty(status)) {
+            wrapper.eq(ShopOrder.COL_STATUS, OrderEnum.getStatusByStr(status));
+        }
+        if (StringUtil.isNotEmpty(date)) {
+            Date[] rangeDate = DateUtil.getDateRange(date);
+            wrapper.ge(ShopOrder.COL_CREATE_TIME, rangeDate[0]);
+            wrapper.le(ShopOrder.COL_CREATE_TIME, rangeDate[1]);
+        }
+        if (StringUtil.isNotEmpty(startDate) && StringUtil.isNotEmpty(endDate)) {
+            wrapper.ge(ShopOrder.COL_CREATE_TIME, DateUtil.parseDate(startDate));
+            wrapper.le(ShopOrder.COL_CREATE_TIME, DateUtil.parseDate(endDate));
+        }
+        IPage<ShopOrder> result = this.page(page, wrapper);
+        for (ShopOrder resultRecord : result.getRecords()) {
+            QueryWrapper<ShopUser> userQueryWrapper = new QueryWrapper<>();
+            userQueryWrapper.eq(ShopUser.COL_ID,resultRecord.getIdUser());
+            ShopUser user = userService.getOne(userQueryWrapper);
+            resultRecord.setUser(user);
+            QueryWrapper<ShopAddress> addressQueryWrapper = new QueryWrapper<>();
+            addressQueryWrapper.eq(ShopAddress.COL_ID,resultRecord.getIdAddress());
+            ShopAddress address = addressService.getOne(addressQueryWrapper);
+            resultRecord.setAddress(address);
+            QueryWrapper<ShopOrderItem> itemQueryWrapper = new QueryWrapper<>();
+            itemQueryWrapper.eq(ShopOrderItem.COL_ID_ORDER,resultRecord.getId());
+            List<ShopOrderItem> items = orderItemService.list(itemQueryWrapper);
+            resultRecord.setItems(items);
+            if (!StringUtil.isEmpty(resultRecord.getIdExpress())) {
+                SysExpress express = expressService.getExpressById(resultRecord.getIdExpress());
+                resultRecord.setExpress(express);
+            }
+        }
+        result.setRecords(result.getRecords());
+        return (Page<ShopOrder>) result;
     }
 
 }

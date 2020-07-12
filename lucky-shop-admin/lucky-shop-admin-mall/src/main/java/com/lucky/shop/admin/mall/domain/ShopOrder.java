@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.lucky.shop.admin.system.api.domain.SysExpress;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -148,6 +150,30 @@ public class ShopOrder implements Serializable {
      */
     @TableField(value = "trade_amount")
     private String tradeAmount;
+
+    /**
+     * 会员信息
+     */
+    @TableField(exist = false)
+    private ShopUser user;
+
+    /**
+     * 收货地址
+     */
+    @TableField(exist = false)
+    private ShopAddress address;
+
+    /**
+     * 订单详情
+     */
+    @TableField(exist = false)
+    private List<ShopOrderItem> items;
+
+    /**
+     * 快递
+     */
+    @TableField(exist = false)
+    private SysExpress express;
 
     private static final long serialVersionUID = 1L;
 

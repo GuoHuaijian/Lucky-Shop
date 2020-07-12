@@ -1,5 +1,6 @@
 package com.lucky.shop.admin.mall.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lucky.shop.admin.mall.domain.ShopOrder;
 
@@ -47,5 +48,18 @@ public interface ShopOrderService extends IService<ShopOrder> {
      * @return
      */
     Map getRealPrice();
+
+    /**
+     * 获取订单列表
+     *
+     * @param mobile
+     * @param orderSn
+     * @param status
+     * @param date
+     * @param startDate
+     * @param endDate
+     * @return
+     */
+    Page<ShopOrder> orderList(String mobile, String orderSn, String status, String date, String startDate, String endDate);
 
 }

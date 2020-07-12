@@ -1,7 +1,6 @@
 package com.lucky.shop.admin.mall.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lucky.shop.admin.mall.api.KdniaoService;
 import com.lucky.shop.admin.mall.domain.ShopOrder;
@@ -16,7 +15,6 @@ import com.lucky.shop.admin.system.api.domain.SysFileInfo;
 import com.lucky.shop.common.core.constant.CfgKey;
 import com.lucky.shop.common.core.dto.ResponseResult;
 import com.lucky.shop.common.core.enums.OrderEnum;
-import com.lucky.shop.common.core.factory.PageFactory;
 import com.lucky.shop.common.core.tool.Maps;
 import com.lucky.shop.common.core.utils.DateUtil;
 import com.lucky.shop.common.core.utils.Lists;
@@ -89,31 +87,8 @@ public class ShopOrderController {
                                @RequestParam(value = "startDate", required = false) String startDate,
                                @RequestParam(value = "endDate", required = false) String endDate) {
 
-        Page<ShopOrder> page = new PageFactory<ShopOrder>().defaultPage();
-        QueryWrapper<ShopOrder> wrapper = new QueryWrapper<>();
-        if (StringUtil.isNotEmpty(orderSn)) {
-            wrapper.eq(ShopOrder.COL_ORDER_SN, orderSn);
-        }
-        if (StringUtil.isNotEmpty(mobile)) {
-            QueryWrapper<ShopUser> wrapper1 = new QueryWrapper<>();
-            wrapper1.eq(ShopUser.COL_MOBILE, mobile);
-            ShopUser shopUser = userService.getOne(wrapper1);
-            wrapper.eq(ShopOrder.COL_ID_USER, shopUser.getId());
-        }
-        if (StringUtil.isNotEmpty(status)) {
-            wrapper.eq(ShopOrder.COL_STATUS, OrderEnum.getStatusByStr(status));
-        }
-        if (StringUtil.isNotEmpty(date)) {
-            Date[] rangeDate = DateUtil.getDateRange(date);
-            wrapper.ge(ShopOrder.COL_CREATE_TIME, rangeDate[0]);
-            wrapper.le(ShopOrder.COL_CREATE_TIME, rangeDate[1]);
-        }
-        if (StringUtil.isNotEmpty(startDate) && StringUtil.isNotEmpty(endDate)) {
-            wrapper.ge(ShopOrder.COL_CREATE_TIME, DateUtil.parseDate(startDate));
-            wrapper.le(ShopOrder.COL_CREATE_TIME, DateUtil.parseDate(endDate));
-        }
-        IPage<ShopOrder> result = orderService.page(page, wrapper);
-        return ResponseResult.success(result);
+        Page<ShopOrder> orderList = orderService.orderList(mobile, orderSn, status, date, startDate, endDate);
+        return ResponseResult.success(orderList);
     }
 
     /**

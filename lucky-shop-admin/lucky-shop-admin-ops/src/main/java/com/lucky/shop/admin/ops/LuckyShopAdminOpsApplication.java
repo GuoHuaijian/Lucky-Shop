@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author Admin
  */
 @SpringCloudApplication
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.lucky.shop.**")
 @MapperScan(basePackages = "com.lucky.shop.admin.ops.mapper")
 @ComponentScan(basePackages = "com.lucky.shop.**")
 public class LuckyShopAdminOpsApplication {
