@@ -24,6 +24,6 @@ public interface RemoteSysExpressService {
      * @param id
      * @return
      */
-    @GetMapping("test/{id}")
-    SysExpress getExpressById(@PathVariable Long id);
+    @GetMapping("/test/{id}")
+    SysExpress getExpressById(@PathVariable("id") Long id);
 }

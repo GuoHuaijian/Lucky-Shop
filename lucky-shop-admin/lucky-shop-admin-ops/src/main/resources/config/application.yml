@@ -63,6 +63,10 @@ management:
 feign:
   sentinel:
     enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
 
 # Oauth2相关配置  配置为security 则不需要自定义验证
 Oauth2:

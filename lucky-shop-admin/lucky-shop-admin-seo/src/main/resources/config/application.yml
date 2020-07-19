@@ -73,6 +73,10 @@ Oauth2:
 feign:
   sentinel:
     enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
 
 # mybatis-plus相关配置
 mybatis-plus:

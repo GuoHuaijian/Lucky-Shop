@@ -185,7 +185,8 @@ public class ShopOrderServiceImpl extends ServiceImpl<ShopOrderMapper, ShopOrder
             List<ShopOrderItem> items = orderItemService.list(itemQueryWrapper);
             resultRecord.setItems(items);
             if (!StringUtil.isEmpty(resultRecord.getIdExpress())) {
-                SysExpress express = expressService.getExpressById(resultRecord.getIdExpress());
+                Long id = resultRecord.getIdExpress();
+                SysExpress express = expressService.getExpressById(id);
                 resultRecord.setExpress(express);
             }
         }
