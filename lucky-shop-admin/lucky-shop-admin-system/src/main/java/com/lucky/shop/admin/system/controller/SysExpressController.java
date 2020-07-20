@@ -103,7 +103,7 @@ public class SysExpressController {
      * @param id
      * @return
      */
-    @GetMapping("test/{id}")
+    @GetMapping("/test/{id}")
     public SysExpress getExpressById(@PathVariable("id") Long id){
         SysExpress express = expressService.getById(id);
         return express;
