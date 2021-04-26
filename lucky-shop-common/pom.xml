@@ -24,7 +24,7 @@
         <java.version>1.8</java.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <ehcache.version>2.10.6</ehcache.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <guava.version>28.2-android</guava.version>
     </properties>
 
