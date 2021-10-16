@@ -29,12 +29,12 @@
 
 都挤在心脏
 
-行李箱里装不下我 想去的远方。所以就写了Lucky-Shop，寓意(Lucky Lucky)，希望自己能幸运一点。
+行李箱里装不下我 想去的远方。Lucky-Shop，寓意(Lucky Lucky)，希望自己能幸运一点。
 
 - Lucky-Shop 是一个基于[Spring Boot](https://spring.io/projects/spring-boot/)和[Vue.js](https://cn.vuejs.org)的web商城系统
 - Lucky-Shop 包含了商城的后台管理系统,手机h5，小程序版本
 - Lucky-Shop 项目原型来自码云上面的一个开源项目[linjiashop](https://gitee.com/microapp/linjiashop)
-- Lucky-Shop是我为了实践自己的学习的微服务技术而改造的，因为技术及时间原因很多方面没来的及重构，优化。后期会慢慢优化，后期改动可能会比较大。同时希望借此项目提升自己的技术，早日重返IT届，哈哈。
+- Lucky-Shop是我为了实践自己的学习的微服务技术而改造的，因为技术及时间原因很多方面没来的及重构，优化。后期会慢慢优化，后期改动可能会比较大。同时希望借此项目提升自己的技术。
 
 ## 系统结构
 
