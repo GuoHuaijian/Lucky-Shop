@@ -19,7 +19,7 @@
         <spring-boot-redis.version>2.2.5.RELEASE</spring-boot-redis.version>
         <druid.version>1.1.14</druid.version>
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
-        <fastjson.version>1.2.60</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <lombok.version>1.18.10</lombok.version>
         <hutool.version>5.3.1</hutool.version>
         <commons-lang3.version>3.10</commons-lang3.version>
