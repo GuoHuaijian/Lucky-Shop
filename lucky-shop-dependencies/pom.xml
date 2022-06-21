@@ -18,7 +18,7 @@
         <Mybatis-Plus.version>3.1.0</Mybatis-Plus.version>
         <spring-boot-redis.version>2.2.5.RELEASE</spring-boot-redis.version>
         <druid.version>1.1.14</druid.version>
-        <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <fastjson.version>1.2.60</fastjson.version>
         <lombok.version>1.18.10</lombok.version>
         <hutool.version>5.3.1</hutool.version>
